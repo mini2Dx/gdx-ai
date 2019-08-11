@@ -30,8 +30,6 @@ import com.badlogic.gdx.ai.tests.steer.box2d.tests.Box2dRaycastObstacleAvoidance
 import com.badlogic.gdx.ai.tests.steer.box2d.tests.Box2dSeekTest;
 import com.badlogic.gdx.ai.tests.steer.box2d.tests.Box2dWanderTest;
 import com.badlogic.gdx.ai.tests.steer.bullet.tests.BulletFaceTest;
-import com.badlogic.gdx.ai.tests.steer.bullet.tests.BulletFollowPathTest;
-import com.badlogic.gdx.ai.tests.steer.bullet.tests.BulletJumpTest;
 import com.badlogic.gdx.ai.tests.steer.bullet.tests.BulletLookWhereYouAreGoingTest;
 import com.badlogic.gdx.ai.tests.steer.bullet.tests.BulletRaycastObstacleAvoidanceTest;
 import com.badlogic.gdx.ai.tests.steer.bullet.tests.BulletSeekTest;
@@ -68,6 +66,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.core.Mdx;
+import org.mini2Dx.libgdx.LibgdxFiles;
+import org.mini2Dx.libgdx.LibgdxLogger;
 
 /** Test class for steering behaviors.
  * 
@@ -75,6 +76,9 @@ import com.badlogic.gdx.utils.Array;
 public class SteeringBehaviorsTest extends ApplicationAdapter {
 
 	public static void main (String[] argv) {
+		Mdx.log = new LibgdxLogger();
+		Mdx.files = new LibgdxFiles();
+
 		GdxAiTestUtils.launch(new SteeringBehaviorsTest());
 	}
 
@@ -119,9 +123,6 @@ public class SteeringBehaviorsTest extends ApplicationAdapter {
 		},
 		{ // Bullet
 			new BulletFaceTest(this),
-			new BulletFollowPathTest(this, false),
-			new BulletFollowPathTest(this, true),
-			new BulletJumpTest(this),
 			new BulletLookWhereYouAreGoingTest(this),
 			new BulletRaycastObstacleAvoidanceTest(this),
 			new BulletSeekTest(this)

@@ -25,7 +25,7 @@ import com.badlogic.gdx.ai.btree.Task;
 import com.badlogic.gdx.ai.btree.Task.Status;
 import com.badlogic.gdx.ai.btree.branch.Parallel.Policy;
 import com.badlogic.gdx.ai.btree.branch.Parallel.Orchestrator;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 public class ParallelTest {
 	private final BehaviorTree<String> behaviorTree = new BehaviorTree<String>();

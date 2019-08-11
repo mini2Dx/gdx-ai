@@ -37,6 +37,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import org.mini2Dx.core.Mdx;
+import org.mini2Dx.core.reflect.jvm.JvmReflection;
+import org.mini2Dx.libgdx.LibgdxFiles;
+import org.mini2Dx.libgdx.LibgdxLogger;
 
 /** Main class for message tests.
  * 
@@ -44,6 +48,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 public class MessageTests extends ApplicationAdapter {
 
 	public static void main (String[] argv) {
+		Mdx.log = new LibgdxLogger();
+		Mdx.files = new LibgdxFiles();
+		Mdx.reflect = new JvmReflection();
+
 		GdxAiTestUtils.launch(new MessageTests());
 	}
 

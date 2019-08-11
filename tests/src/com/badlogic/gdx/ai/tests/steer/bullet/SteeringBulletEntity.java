@@ -23,8 +23,8 @@ import com.badlogic.gdx.ai.tests.utils.bullet.BulletEntity;
 import com.badlogic.gdx.ai.utils.Location;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Quaternion;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.bullet.dynamics.btRigidBody;
+import org.mini2Dx.gdx.math.Vector3;
 
 /** @author Daniel Holderbaum */
 public class SteeringBulletEntity extends BulletEntity implements Steerable<Vector3> {
@@ -43,9 +43,9 @@ public class SteeringBulletEntity extends BulletEntity implements Steerable<Vect
 
 	private static final Quaternion tmpQuaternion = new Quaternion();
 	private static final Matrix4 tmpMatrix4 = new Matrix4();
-	private final Vector3 tmpVector3 = new Vector3();
+	private final com.badlogic.gdx.math.Vector3 tmpVector3 = new com.badlogic.gdx.math.Vector3();
 
-	private static final Vector3 ANGULAR_LOCK = new Vector3(0, 1, 0);
+	private static final com.badlogic.gdx.math.Vector3 ANGULAR_LOCK = new com.badlogic.gdx.math.Vector3(0, 1, 0);
 
 	public SteeringBulletEntity (BulletEntity copyEntity) {
 		this(copyEntity, false);
@@ -101,7 +101,7 @@ public class SteeringBulletEntity extends BulletEntity implements Steerable<Vect
 		// Update position and linear velocity
 		if (!steeringOutput.linear.isZero()) {
 			// this method internally scales the force by deltaTime
-			body.applyCentralForce(steeringOutput.linear);
+			body.applyCentralForce(new com.badlogic.gdx.math.Vector3(steeringOutput.linear.x, steeringOutput.linear.y, steeringOutput.linear.z));
 			anyAccelerations = true;
 		}
 
@@ -141,18 +141,16 @@ public class SteeringBulletEntity extends BulletEntity implements Steerable<Vect
 			// http://www.bulletphysics.org/mediawiki-1.5.8/index.php/Simulation_Tick_Callbacks
 
 			// Cap the linear speed
-			Vector3 velocity = body.getLinearVelocity();
-			float currentSpeedSquare = velocity.len2();
+			float currentSpeedSquare = body.getLinearVelocity().len2();
 			float maxLinearSpeed = getMaxLinearSpeed();
 			if (currentSpeedSquare > maxLinearSpeed * maxLinearSpeed) {
-				body.setLinearVelocity(velocity.scl(maxLinearSpeed / (float)Math.sqrt(currentSpeedSquare)));
+				body.setLinearVelocity(body.getLinearVelocity().scl(maxLinearSpeed / (float)Math.sqrt(currentSpeedSquare)));
 			}
 
 			// Cap the angular speed
-			Vector3 angVelocity = body.getAngularVelocity();
-			if (angVelocity.y > getMaxAngularSpeed()) {
-				angVelocity.y = getMaxAngularSpeed();
-				body.setAngularVelocity(angVelocity);
+			if (body.getAngularVelocity().y > getMaxAngularSpeed()) {
+				body.getAngularVelocity().y = getMaxAngularSpeed();
+				body.setAngularVelocity(body.getAngularVelocity());
 			}
 		}
 	}
@@ -179,13 +177,12 @@ public class SteeringBulletEntity extends BulletEntity implements Steerable<Vect
 
 	@Override
 	public Vector3 getLinearVelocity () {
-		return body.getLinearVelocity();
+		return new Vector3(body.getLinearVelocity().x, body.getLinearVelocity().y, body.getLinearVelocity().z);
 	}
 
 	@Override
 	public float getAngularVelocity () {
-		Vector3 angularVelocity = body.getAngularVelocity();
-		return angularVelocity.y;
+		return body.getAngularVelocity().y;
 	}
 
 	@Override
@@ -222,7 +219,8 @@ public class SteeringBulletEntity extends BulletEntity implements Steerable<Vect
 	@Override
 	public Vector3 getPosition () {
 		body.getMotionState().getWorldTransform(tmpMatrix4);
-		return tmpMatrix4.getTranslation(tmpVector3);
+		tmpMatrix4.getTranslation(tmpVector3);
+		return new Vector3(tmpVector3.x, tmpVector3.y, tmpVector3.z);
 	}
 
 	@Override

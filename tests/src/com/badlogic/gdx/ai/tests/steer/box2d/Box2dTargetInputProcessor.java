@@ -20,7 +20,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.ai.tests.steer.scene2d.SteeringActor;
-import com.badlogic.gdx.math.Vector2;
+import org.mini2Dx.gdx.math.Vector2;
 
 /** An {@link InputProcessor} that allows you to manually move a {@link SteeringActor}.
  * 
@@ -49,6 +49,6 @@ public class Box2dTargetInputProcessor extends InputAdapter {
 		screenY = Gdx.graphics.getHeight() - screenY;
 		pos.x = Box2dSteeringTest.pixelsToMeters(screenX);
 		pos.y = Box2dSteeringTest.pixelsToMeters(screenY);
-		target.getBody().setTransform(pos, target.body.getAngle());
+		target.getBody().setTransform(pos.x, pos.y, target.body.getAngle());
 	}
 }

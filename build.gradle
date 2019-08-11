@@ -1,7 +1,11 @@
 buildscript {
     repositories {
-        mavenCentral()
         mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url "https://oss.sonatype.org/service/local/repositories/releases/content/" }
+        maven { url 'https://maven.google.com' }
     }
 }
 
@@ -11,10 +15,12 @@ allprojects {
     apply plugin: 'java'
 
     repositories {
-        mavenCentral()
-        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url "https://oss.sonatype.org/service/local/repositories/releases/content/" }
+        maven { url 'https://maven.google.com' }
     }
 }
 
@@ -44,7 +50,7 @@ project(":gdx-ai") {
 project(":tests") {
     dependencies {
         compile project(":gdx-ai")
-        compile "org.mini2Dx:mini2Dx-desktop:$mdxVersion"
+        compile "org.mini2Dx:mini2Dx-libgdx-desktop:$mdxVersion"
     }
 }
 

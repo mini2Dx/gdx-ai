@@ -35,7 +35,6 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
@@ -52,6 +51,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
+import org.mini2Dx.gdx.math.Vector2;
 
 /** A class to test and experiment with the {@link RaycastObstacleAvoidance} behavior.
  * 
@@ -84,7 +84,7 @@ public class Scene2dRaycastObstacleAvoidanceTest extends Scene2dSteeringTest {
 
 		// Instantiate a new World with no gravity
 		// and tell it to sleep when possible.
-		world = new World(new Vector2(0, 0), true);
+		world = new World(new com.badlogic.gdx.math.Vector2(0f, 0f), true);
 
 		createRandomWalls(8);
 
@@ -211,7 +211,7 @@ public class Scene2dRaycastObstacleAvoidanceTest extends Scene2dSteeringTest {
 			shapeRenderer.setTransformMatrix(transform);
 			for (int i = 0; i < rays.length; i++) {
 				Ray<Vector2> ray = rays[i];
-				shapeRenderer.line(ray.start, ray.end);
+				shapeRenderer.line(ray.start.x, ray.start.y, ray.end.x, ray.end.y);
 			}
 			shapeRenderer.end();
 		}
@@ -228,7 +228,7 @@ public class Scene2dRaycastObstacleAvoidanceTest extends Scene2dSteeringTest {
 
 	private void renderBox (ShapeRenderer shapeRenderer, Body body, float halfWidth, float halfHeight) {
 		// get the bodies center and angle in world coordinates
-		Vector2 pos = body.getWorldCenter();
+		Vector2 pos = new Vector2(body.getWorldCenter().x, body.getWorldCenter().y);
 		float angle = body.getAngle();
 
 		// set the translation and rotation matrix

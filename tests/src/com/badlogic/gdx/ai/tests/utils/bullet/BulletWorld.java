@@ -19,7 +19,6 @@ package com.badlogic.gdx.ai.tests.utils.bullet;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.bullet.DebugDrawer;
 import com.badlogic.gdx.physics.bullet.collision.btBroadphaseInterface;
 import com.badlogic.gdx.physics.bullet.collision.btCollisionConfiguration;
@@ -35,6 +34,7 @@ import com.badlogic.gdx.physics.bullet.dynamics.btRigidBody;
 import com.badlogic.gdx.physics.bullet.dynamics.btSequentialImpulseConstraintSolver;
 import com.badlogic.gdx.physics.bullet.linearmath.btIDebugDraw;
 import com.badlogic.gdx.utils.PerformanceCounter;
+import org.mini2Dx.gdx.math.Vector3;
 
 /** @author xoppa Bullet physics world that holds all bullet entities and constructors. */
 public class BulletWorld extends BaseWorld<BulletEntity> {
@@ -59,7 +59,7 @@ public class BulletWorld extends BaseWorld<BulletEntity> {
 		this.broadphase = broadphase;
 		this.solver = solver;
 		this.collisionWorld = world;
-		if (world instanceof btDynamicsWorld) ((btDynamicsWorld)this.collisionWorld).setGravity(gravity);
+		if (world instanceof btDynamicsWorld) ((btDynamicsWorld)this.collisionWorld).setGravity(new com.badlogic.gdx.math.Vector3(gravity.x, gravity.y, gravity.z));
 		this.gravity = gravity;
 	}
 
@@ -74,7 +74,7 @@ public class BulletWorld extends BaseWorld<BulletEntity> {
 		broadphase = new btDbvtBroadphase();
 		solver = new btSequentialImpulseConstraintSolver();
 		collisionWorld = new btDiscreteDynamicsWorld(dispatcher, broadphase, solver, collisionConfiguration);
-		((btDynamicsWorld)collisionWorld).setGravity(gravity);
+		((btDynamicsWorld)collisionWorld).setGravity(new com.badlogic.gdx.math.Vector3(gravity.x, gravity.y, gravity.z));
 		this.gravity = gravity;
 	}
 

@@ -19,11 +19,11 @@ package com.badlogic.gdx.ai.tests.steer.bullet.tests;
 import com.badlogic.gdx.ai.utils.Collision;
 import com.badlogic.gdx.ai.utils.Ray;
 import com.badlogic.gdx.ai.utils.RaycastCollisionDetector;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.bullet.collision.ClosestNotMeRayResultCallback;
 import com.badlogic.gdx.physics.bullet.collision.ClosestRayResultCallback;
 import com.badlogic.gdx.physics.bullet.collision.btCollisionObject;
 import com.badlogic.gdx.physics.bullet.collision.btCollisionWorld;
+import org.mini2Dx.gdx.math.Vector3;
 
 /** A 3D {@link RaycastCollisionDetector} to be used with bullet physics. It reports the closest collision which is not the
  * supplied "me" collision object.
@@ -34,6 +34,9 @@ public class BulletRaycastCollisionDetector implements RaycastCollisionDetector<
 	btCollisionWorld world;
 
 	ClosestRayResultCallback callback;
+
+	com.badlogic.gdx.math.Vector3 tmpStart = new com.badlogic.gdx.math.Vector3();
+	com.badlogic.gdx.math.Vector3 tmpEnd = new com.badlogic.gdx.math.Vector3();
 
 	public BulletRaycastCollisionDetector (btCollisionWorld world, btCollisionObject me) {
 		this.world = world;
@@ -50,11 +53,14 @@ public class BulletRaycastCollisionDetector implements RaycastCollisionDetector<
 		// reset because we reuse the callback
 		callback.setCollisionObject(null);
 
-		world.rayTest(inputRay.start, inputRay.end, callback);
+		tmpStart.set(inputRay.start.x, inputRay.start.y, inputRay.start.z);
+		tmpEnd.set(inputRay.end.x, inputRay.end.y, inputRay.end.z);
+
+		world.rayTest(tmpStart, tmpEnd, callback);
 
 		if (outputCollision != null) {
-			callback.getHitPointWorld(outputCollision.point);
-			callback.getHitNormalWorld(outputCollision.normal);
+			callback.getHitPointWorld(new com.badlogic.gdx.math.Vector3(outputCollision.point.x, outputCollision.point.y, outputCollision.point.z));
+			callback.getHitNormalWorld(new com.badlogic.gdx.math.Vector3(outputCollision.normal.x, outputCollision.normal.y, outputCollision.normal.z));
 		}
 
 		return callback.hasHit();

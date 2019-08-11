@@ -20,12 +20,12 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.ai.utils.Collision;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
 import com.badlogic.gdx.physics.bullet.collision.ClosestRayResultCallback;
 import com.badlogic.gdx.physics.bullet.collision.btCollisionObject;
 import com.badlogic.gdx.physics.bullet.collision.btCollisionWorld;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import org.mini2Dx.gdx.math.Vector3;
 
 /** An {@link InputProcessor} that allows you to manually move a {@link SteeringBulletEntity}.
  * 
@@ -89,7 +89,8 @@ public class BulletTargetInputProcessor extends InputAdapter {
 			btCollisionObject body = rayTest(output, pickRay);
 
 			if (body != null && body.userData != null && body.userData.equals("ground")) {
-				target.transform.setToTranslation(output.point.add(offset));
+				output.point.add(offset);
+				target.transform.setToTranslation(output.point.x, output.point.y, output.point.z);
 				target.body.setWorldTransform(target.transform);
 			}
 			return true;
@@ -97,8 +98,8 @@ public class BulletTargetInputProcessor extends InputAdapter {
 		return false;
 	}
 
-	private static final Vector3 rayFrom = new Vector3();
-	private static final Vector3 rayTo = new Vector3();
+	private static final com.badlogic.gdx.math.Vector3 rayFrom = new com.badlogic.gdx.math.Vector3();
+	private static final com.badlogic.gdx.math.Vector3 rayTo = new com.badlogic.gdx.math.Vector3();
 	private static final ClosestRayResultCallback callback = new ClosestRayResultCallback(rayFrom, rayTo);
 
 	private btCollisionObject rayTest (Collision<Vector3> output, Ray ray) {
@@ -116,8 +117,8 @@ public class BulletTargetInputProcessor extends InputAdapter {
 		world.rayTest(rayFrom, rayTo, callback);
 
 		if (callback.hasHit()) {
-			callback.getHitPointWorld(output.point);
-			callback.getHitNormalWorld(output.normal);
+			callback.getHitPointWorld(new com.badlogic.gdx.math.Vector3(output.point.x, output.point.y, output.point.z));
+			callback.getHitNormalWorld(new com.badlogic.gdx.math.Vector3(output.normal.x, output.normal.y, output.normal.z));
 			return callback.getCollisionObject();
 		}
 

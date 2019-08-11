@@ -21,7 +21,7 @@ import com.badlogic.gdx.ai.tests.steer.scene2d.Scene2dLocation;
 import com.badlogic.gdx.ai.tests.steer.scene2d.SteeringActor;
 import com.badlogic.gdx.ai.utils.Location;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Vector2;
+import org.mini2Dx.gdx.math.Vector2;
 
 /** A {@code SteeringActorFormationMember} is a scene2d {@link SteeringActor} implementing the {@link FormationMember} interface.
  * 

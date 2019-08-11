@@ -18,8 +18,8 @@ package com.badlogic.gdx.ai.tests.steer.scene2d;
 
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Align;
+import org.mini2Dx.gdx.math.Vector2;
 
 /** An {@link InputProcessor} that allows you to manually move a {@link SteeringActor}.
  * 
@@ -45,8 +45,11 @@ public class Scene2dTargetInputProcessor extends InputAdapter {
 	
 	protected void setTargetPosition(int screenX, int screenY) {
 		Vector2 pos = target.getPosition();
-		target.getStage().screenToStageCoordinates(pos.set(screenX, screenY));
-		target.getParent().stageToLocalCoordinates(pos);
+		pos.set(screenX, screenY);
+
+		com.badlogic.gdx.math.Vector2 vPos = new com.badlogic.gdx.math.Vector2(screenX, screenY);
+		target.getStage().screenToStageCoordinates(vPos);
+		target.getParent().stageToLocalCoordinates(vPos);
 		target.setPosition(pos.x, pos.y, Align.center);
 	}
 }

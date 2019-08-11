@@ -42,7 +42,6 @@ import com.badlogic.gdx.graphics.g3d.loader.ObjLoader;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.DepthShaderProvider;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.bullet.Bullet;
 import com.badlogic.gdx.physics.bullet.collision.btCapsuleShape;
 import com.badlogic.gdx.physics.bullet.collision.btConeShape;
@@ -53,6 +52,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import org.mini2Dx.gdx.math.Vector3;
 
 /** Base class for bullet steering behavior tests.
  * 
@@ -229,7 +229,7 @@ public abstract class BulletSteeringTest extends SteeringTestBase {
 
 	protected void renderWorld () {
 		if (shadows) {
-			((DirectionalShadowLight)light).begin(Vector3.Zero, camera.direction);
+			((DirectionalShadowLight)light).begin(com.badlogic.gdx.math.Vector3.Zero, camera.direction);
 			shadowBatch.begin(((DirectionalShadowLight)light).getCamera());
 			world.render(shadowBatch, null);
 			shadowBatch.end();

@@ -18,10 +18,10 @@ package com.badlogic.gdx.ai.tests.steer.box2d;
 
 import com.badlogic.gdx.ai.steer.Proximity;
 import com.badlogic.gdx.ai.steer.Steerable;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.QueryCallback;
 import com.badlogic.gdx.physics.box2d.World;
+import org.mini2Dx.gdx.math.Vector2;
 
 /** A {@code Box2dSquareAABBProximity} is a {@link Proximity} that queries the world for all fixtures that potentially overlap the
  * square AABB built around the circle having the specified detection radius and whose center is the owner position.

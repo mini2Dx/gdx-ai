@@ -12,6 +12,16 @@ dependencies {
     compile "com.esotericsoftware:kryo:3.0.3"
 }
 
+task launchBehaviorTests(dependsOn: classes, type: JavaExec) {
+    main = "com.badlogic.gdx.ai.tests.BehaviorTreeTests"
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = "$projectDir"
+    ignoreExitValue = true
+}
+
+
+
 eclipse.project {
     name =  projectGroup + "-tests"
 }

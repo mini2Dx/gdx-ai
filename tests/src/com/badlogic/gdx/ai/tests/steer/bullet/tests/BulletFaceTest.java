@@ -24,13 +24,13 @@ import com.badlogic.gdx.ai.tests.steer.bullet.SteeringBulletEntity;
 import com.badlogic.gdx.ai.tests.utils.bullet.BulletEntity;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.bullet.collision.btCollisionObject;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import org.mini2Dx.gdx.math.Vector3;
 
 /** A class to test and experiment with the {@link Face} behavior.
  * 
@@ -59,7 +59,7 @@ public class BulletFaceTest extends BulletSteeringTest {
 		character.setMaxAngularAcceleration(20);
 		character.setMaxAngularSpeed(10);
 
-		BulletEntity targetBase = world.add("staticbox", new Matrix4().setToTranslation(new Vector3(5f, 1.5f, 5f)));
+		BulletEntity targetBase = world.add("staticbox", new Matrix4().setToTranslation(5f, 1.5f, 5f));
 		targetBase.body.setCollisionFlags(targetBase.body.getCollisionFlags()
 			| btCollisionObject.CollisionFlags.CF_NO_CONTACT_RESPONSE);
 		target = new SteeringBulletEntity(targetBase);

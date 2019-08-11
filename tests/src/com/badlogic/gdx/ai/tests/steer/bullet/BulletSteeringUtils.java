@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.tests.steer.bullet;
 
-import com.badlogic.gdx.math.Vector3;
+import org.mini2Dx.gdx.math.Vector3;
 
 public final class BulletSteeringUtils {
 

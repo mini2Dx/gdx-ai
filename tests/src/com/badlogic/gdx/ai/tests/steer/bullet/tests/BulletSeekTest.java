@@ -23,9 +23,9 @@ import com.badlogic.gdx.ai.tests.steer.bullet.BulletSteeringTest;
 import com.badlogic.gdx.ai.tests.steer.bullet.SteeringBulletEntity;
 import com.badlogic.gdx.ai.tests.utils.bullet.BulletEntity;
 import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.bullet.collision.btCollisionObject;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import org.mini2Dx.gdx.math.Vector3;
 
 /** A class to test and experiment with the {@link Seek} behavior.
  * 
@@ -54,7 +54,7 @@ public class BulletSeekTest extends BulletSteeringTest {
 		character.setMaxLinearSpeed(50);
 		character.setMaxLinearAcceleration(200);
 
-		BulletEntity targetBase = world.add("staticbox", new Matrix4().setToTranslation(new Vector3(5f, 1.5f, 5f)));
+		BulletEntity targetBase = world.add("staticbox", new Matrix4().setToTranslation(new com.badlogic.gdx.math.Vector3(5f, 1.5f, 5f)));
 		targetBase.body.setCollisionFlags(targetBase.body.getCollisionFlags()
 			| btCollisionObject.CollisionFlags.CF_NO_CONTACT_RESPONSE);
 		target = new SteeringBulletEntity(targetBase);

@@ -31,7 +31,6 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
@@ -49,6 +48,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import org.mini2Dx.gdx.math.Vector2;
 
 /** A class to test and experiment with the {@link Jump} behavior.
  * @author davebaol */
@@ -105,7 +105,7 @@ public class Box2dJumpTest extends Box2dSteeringTest {
 		spriteBatch = new SpriteBatch();
 
 		// Instantiate a new World with gravity
-		world.setGravity(new Vector2(0, -9.81f));
+		world.setGravity(new com.badlogic.gdx.math.Vector2(0, -9.81f));
 		
 		setContactListener();
 
@@ -149,8 +149,8 @@ public class Box2dJumpTest extends Box2dSteeringTest {
 // character.body.setMassProps(1, new Vector3(0,0,0));
 // character.body.setAnisotropicFriction(new Vector3(0,0,0)); // ???
 		
-		Vector2 takeoffPoint = new Vector2(leftPlatform.getPosition()).add(Box2dSteeringTest.pixelsToMeters(PLATFORM_HALF_WIDTH-20), Box2dSteeringTest.pixelsToMeters(PLATFORM_HALF_HEIGHT)+character.getBoundingRadius());
-		Vector2 landingPoint = new Vector2(rightPlatform.getPosition()).add(Box2dSteeringTest.pixelsToMeters(20-PLATFORM_HALF_WIDTH), Box2dSteeringTest.pixelsToMeters(PLATFORM_HALF_HEIGHT)+character.getBoundingRadius());
+		Vector2 takeoffPoint = new Vector2(leftPlatform.getPosition().x, leftPlatform.getPosition().y).add(Box2dSteeringTest.pixelsToMeters(PLATFORM_HALF_WIDTH-20), Box2dSteeringTest.pixelsToMeters(PLATFORM_HALF_HEIGHT)+character.getBoundingRadius());
+		Vector2 landingPoint = new Vector2(rightPlatform.getPosition().x, rightPlatform.getPosition().y).add(Box2dSteeringTest.pixelsToMeters(20-PLATFORM_HALF_WIDTH), Box2dSteeringTest.pixelsToMeters(PLATFORM_HALF_HEIGHT)+character.getBoundingRadius());
 		System.out.println("takeoffPoint: " + takeoffPoint);
 		System.out.println("landingPoint: " + landingPoint);
 		jumpDescriptor = new JumpDescriptor<Vector2>(takeoffPoint, landingPoint);
@@ -176,14 +176,14 @@ public class Box2dJumpTest extends Box2dSteeringTest {
 					break;
 				case 1: // Use predicted velocity. We are cheating!!!
 					Vector2 targetLinearVelocity = jumpSB.getTarget().getLinearVelocity();
-					character.getBody().setLinearVelocity(newJumpDescriptor.takeoffPosition.set(targetLinearVelocity.x,
-						maxVerticalVelocity));
+					newJumpDescriptor.takeoffPosition.set(targetLinearVelocity.x, maxVerticalVelocity);
+					character.getBody().setLinearVelocity(newJumpDescriptor.takeoffPosition.x, newJumpDescriptor.takeoffPosition.y);
 					break;
 				case 2: // Calculate and use exact velocity. We are shamelessly cheating!!!
-					Vector2 newLinearVelocity = character.getBody().getLinearVelocity();
+					com.badlogic.gdx.math.Vector2 newLinearVelocity = character.getBody().getLinearVelocity();
 					newJumpDescriptor.set(character.getPosition(), jumpSB.getJumpDescriptor().landingPosition);
 					System.out.println("character.pos = " + character.getPosition());
-					time = jumpSB.calculateAirborneTimeAndVelocity(newLinearVelocity, newJumpDescriptor, jumpSB.getLimiter()
+					time = jumpSB.calculateAirborneTimeAndVelocity(new Vector2(newLinearVelocity.x, newLinearVelocity.y), newJumpDescriptor, jumpSB.getLimiter()
 						.getMaxLinearSpeed());
 					character.getBody().setLinearVelocity(newLinearVelocity.add(0, maxVerticalVelocity));
 					break;
@@ -192,7 +192,7 @@ public class Box2dJumpTest extends Box2dSteeringTest {
 			}
 
 		};
-		jumpSB = new Jump<Vector2>(character, jumpDescriptor, world.getGravity(), GRAVITY_COMPONENT_HANDLER, jumpCallback) //
+		jumpSB = new Jump<Vector2>(character, jumpDescriptor, new Vector2(world.getGravity().x, world.getGravity().y), GRAVITY_COMPONENT_HANDLER, jumpCallback) //
 			.setMaxVerticalVelocity(5) //
 			.setTakeoffPositionTolerance(.3f) //
 			.setTakeoffVelocityTolerance(.7f) //

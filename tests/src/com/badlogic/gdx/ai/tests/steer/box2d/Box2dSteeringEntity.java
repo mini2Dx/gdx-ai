@@ -24,8 +24,8 @@ import com.badlogic.gdx.ai.utils.Location;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import org.mini2Dx.gdx.math.Vector2;
 
 /** A steering entity for box2d physics engine.
  * 
@@ -84,7 +84,7 @@ public class Box2dSteeringEntity implements Steerable<Vector2> {
 
 	@Override
 	public Vector2 getPosition () {
-		return body.getPosition();
+		return new Vector2(body.getPosition().x, body.getPosition().y);
 	}
 
 	@Override
@@ -94,12 +94,12 @@ public class Box2dSteeringEntity implements Steerable<Vector2> {
 
 	@Override
 	public void setOrientation (float orientation) {
-		body.setTransform(getPosition(), orientation);
+		body.setTransform(body.getPosition(), orientation);
 	}
 
 	@Override
 	public Vector2 getLinearVelocity () {
-		return body.getLinearVelocity();
+		return new Vector2(body.getLinearVelocity().x, body.getLinearVelocity().y);
 	}
 
 	@Override
@@ -172,7 +172,7 @@ public class Box2dSteeringEntity implements Steerable<Vector2> {
 		// Update position and linear velocity.
 		if (!steeringOutput.linear.isZero()) {
 			// this method internally scales the force by deltaTime
-			body.applyForceToCenter(steeringOutput.linear, true);
+			body.applyForceToCenter(steeringOutput.linear.x, steeringOutput.linear.y, true);
 			anyAccelerations = true;
 		}
 
@@ -202,11 +202,10 @@ public class Box2dSteeringEntity implements Steerable<Vector2> {
 			// http://www.bulletphysics.org/mediawiki-1.5.8/index.php/Simulation_Tick_Callbacks
 
 			// Cap the linear speed
-			Vector2 velocity = body.getLinearVelocity();
-			float currentSpeedSquare = velocity.len2();
+			float currentSpeedSquare = body.getLinearVelocity().len2();
 			float maxLinearSpeed = getMaxLinearSpeed();
 			if (currentSpeedSquare > maxLinearSpeed * maxLinearSpeed) {
-				body.setLinearVelocity(velocity.scl(maxLinearSpeed / (float)Math.sqrt(currentSpeedSquare)));
+				body.setLinearVelocity(body.getLinearVelocity().scl(maxLinearSpeed / (float)Math.sqrt(currentSpeedSquare)));
 			}
 
 			// Cap the angular speed
@@ -221,7 +220,7 @@ public class Box2dSteeringEntity implements Steerable<Vector2> {
 	// and from left to right
 	protected void wrapAround (float maxX, float maxY) {
 		float k = Float.POSITIVE_INFINITY;
-		Vector2 pos = body.getPosition();
+		com.badlogic.gdx.math.Vector2 pos = body.getPosition();
 
 		if (pos.x > maxX) k = pos.x = 0.0f;
 
@@ -235,7 +234,7 @@ public class Box2dSteeringEntity implements Steerable<Vector2> {
 	}
 
 	public void draw (Batch batch) {
-		Vector2 pos = body.getPosition();
+		com.badlogic.gdx.math.Vector2 pos = body.getPosition();
 		float w = region.getRegionWidth();
 		float h = region.getRegionHeight();
 		float ox = w / 2f;

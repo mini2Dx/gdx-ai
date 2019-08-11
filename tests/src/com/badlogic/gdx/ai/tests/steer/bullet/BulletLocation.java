@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.tests.steer.bullet;
 
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Vector3;
+import org.mini2Dx.gdx.math.Vector3;
 
 public class BulletLocation implements Location<Vector3> {
 

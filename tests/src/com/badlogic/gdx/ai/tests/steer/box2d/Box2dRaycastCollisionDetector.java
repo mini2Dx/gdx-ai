@@ -20,10 +20,10 @@ import com.badlogic.gdx.ai.utils.Collision;
 import com.badlogic.gdx.ai.utils.Ray;
 import com.badlogic.gdx.ai.utils.RaycastCollisionDetector;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.RayCastCallback;
 import com.badlogic.gdx.physics.box2d.World;
+import org.mini2Dx.gdx.math.Vector2;
 
 /** A raycast collision detector for box2d.
  * 
@@ -52,7 +52,7 @@ public class Box2dRaycastCollisionDetector implements RaycastCollisionDetector<V
 		callback.collided = false;
 		if (!inputRay.start.epsilonEquals(inputRay.end, MathUtils.FLOAT_ROUNDING_ERROR)) {
 			callback.outputCollision = outputCollision;
-			world.rayCast(callback, inputRay.start, inputRay.end);
+			world.rayCast(callback, inputRay.start.x, inputRay.start.y, inputRay.end.x, inputRay.end.y);
 		}
 		return callback.collided;
 	}
@@ -65,8 +65,8 @@ public class Box2dRaycastCollisionDetector implements RaycastCollisionDetector<V
 		}
 
 		@Override
-		public float reportRayFixture (Fixture fixture, Vector2 point, Vector2 normal, float fraction) {
-			if (outputCollision != null) outputCollision.set(point, normal);
+		public float reportRayFixture(Fixture fixture, com.badlogic.gdx.math.Vector2 point, com.badlogic.gdx.math.Vector2 normal, float fraction) {
+			if (outputCollision != null) outputCollision.set(new Vector2(point.x, point.y), new Vector2(normal.x, normal.y));
 			collided = true;
 			return fraction;
 		}

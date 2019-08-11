@@ -36,7 +36,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
@@ -51,6 +50,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import org.mini2Dx.gdx.math.Vector2;
 
 /** A class to test and experiment with the {@link RaycastObstacleAvoidance} behavior.
  * 
@@ -215,7 +215,7 @@ public class Box2dRaycastObstacleAvoidanceTest extends Box2dSteeringTest {
 				tmp2.set(ray.end);
 				tmp2.x = Box2dSteeringTest.metersToPixels(tmp2.x);
 				tmp2.y = Box2dSteeringTest.metersToPixels(tmp2.y);
-				shapeRenderer.line(tmp, tmp2);
+				shapeRenderer.line(tmp.x, tmp.y, tmp2.x, tmp2.y);
 			}
 			shapeRenderer.end();
 		}

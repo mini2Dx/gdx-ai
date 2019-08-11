@@ -38,7 +38,6 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
@@ -48,6 +47,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import org.mini2Dx.gdx.math.Vector3;
 
 /** A class to test and experiment with the {@link RaycastObstacleAvoidance} behavior.
  * @author Daniel Holderbaum
@@ -187,6 +187,9 @@ public class BulletRaycastObstacleAvoidanceTest extends BulletSteeringTest {
 		super.draw();
 
 		if (drawDebug) {
+			com.badlogic.gdx.math.Vector3 start = new com.badlogic.gdx.math.Vector3();
+			com.badlogic.gdx.math.Vector3 end = new com.badlogic.gdx.math.Vector3();
+
 			Gdx.gl.glDisable(GL20.GL_DEPTH_TEST);
 			Ray<Vector3>[] rays = rayConfigurations[rayConfigurationIndex].getRays();
 			shapeRenderer.begin(ShapeType.Line);
@@ -194,7 +197,10 @@ public class BulletRaycastObstacleAvoidanceTest extends BulletSteeringTest {
 			shapeRenderer.setProjectionMatrix(camera.combined);
 			for (int i = 0; i < rays.length; i++) {
 				Ray<Vector3> ray = rays[i];
-				shapeRenderer.line(ray.start, ray.end);
+				start.set(ray.start.x, ray.start.y, ray.start.z);
+				end.set(ray.end.x, ray.end.y, ray.end.z);
+
+				shapeRenderer.line(start, end);
 			}
 			shapeRenderer.end();
 			Gdx.gl.glEnable(GL20.GL_DEPTH_TEST);
@@ -219,7 +225,7 @@ public class BulletRaycastObstacleAvoidanceTest extends BulletSteeringTest {
 			BulletSteeringUtils.angleToVector(v, a).scl(apothem);
 			BulletEntity wall = world.add("staticwall", v.x, 0, v.z);
 			wall.setColor(MathUtils.random(0.25f, 0.75f), MathUtils.random(0.25f, 0.75f), MathUtils.random(0.25f, 0.75f), 1f);
-			wall.transform.rotateRad(Vector3.Y, a + MathUtils.PI / 2);
+			wall.transform.rotateRad(com.badlogic.gdx.math.Vector3.Y, a + MathUtils.PI / 2);
 			wall.body.setWorldTransform(wall.transform);
 		}
 	}

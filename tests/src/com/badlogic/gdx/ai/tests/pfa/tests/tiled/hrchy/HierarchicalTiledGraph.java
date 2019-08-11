@@ -23,7 +23,7 @@ import com.badlogic.gdx.ai.tests.pfa.tests.tiled.DungeonUtils.TwoLevelHierarchy;
 import com.badlogic.gdx.ai.tests.pfa.tests.tiled.flat.FlatTiledNode;
 import com.badlogic.gdx.ai.tests.pfa.tests.tiled.TiledGraph;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A random generated graph representing a hierarchical tiled map.
  * 

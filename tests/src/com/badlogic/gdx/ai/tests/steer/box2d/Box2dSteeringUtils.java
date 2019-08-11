@@ -16,14 +16,14 @@
 
 package com.badlogic.gdx.ai.tests.steer.box2d;
 
-import com.badlogic.gdx.math.Vector2;
+import org.mini2Dx.gdx.math.Vector2;
 
 public final class Box2dSteeringUtils {
 
 	private Box2dSteeringUtils () {
 	}
 
-	public static float vectorToAngle (Vector2 vector) {
+	public static float vectorToAngle(Vector2 vector) {
 		return (float)Math.atan2(-vector.x, vector.y);
 	}
 

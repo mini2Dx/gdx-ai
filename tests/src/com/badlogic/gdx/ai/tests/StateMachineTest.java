@@ -23,12 +23,20 @@ import com.badlogic.gdx.ai.msg.MessageManager;
 import com.badlogic.gdx.ai.tests.fsm.Bob;
 import com.badlogic.gdx.ai.tests.fsm.Elsa;
 import com.badlogic.gdx.ai.tests.utils.GdxAiTestUtils;
+import org.mini2Dx.core.Mdx;
+import org.mini2Dx.core.reflect.jvm.JvmReflection;
+import org.mini2Dx.libgdx.LibgdxFiles;
+import org.mini2Dx.libgdx.LibgdxLogger;
 
 /** A simple test to demonstrate state machines combined with message handling.
  * @author davebaol */
 public class StateMachineTest extends ApplicationAdapter {
 
 	public static void main (String[] argv) {
+		Mdx.log = new LibgdxLogger();
+		Mdx.files = new LibgdxFiles();
+		Mdx.reflect = new JvmReflection();
+
 		GdxAiTestUtils.launch(new StateMachineTest());
 	}
 
