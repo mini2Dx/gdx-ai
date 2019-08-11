@@ -16,42 +16,45 @@
 
 package com.badlogic.gdx.ai;
 
-import com.badlogic.gdx.Gdx;
+import org.mini2Dx.core.Mdx;
 
 /** @author davebaol */
-public class GdxLogger implements Logger {
+public class MdxLogger implements Logger {
 
-	public GdxLogger () {
+	public MdxLogger() {
 	}
 
 	@Override
 	public void debug (String tag, String message) {
-		Gdx.app.debug(tag, message);
+		Mdx.log.debug(tag, message);
 	}
 
 	@Override
 	public void debug (String tag, String message, Throwable exception) {
-		Gdx.app.debug(tag, message, exception);
+		Mdx.log.debug(tag, message);
+		exception.printStackTrace();
 	}
 
 	@Override
 	public void info (String tag, String message) {
-		Gdx.app.log(tag, message);
+		Mdx.log.info(tag, message);
 	}
 
 	@Override
 	public void info (String tag, String message, Throwable exception) {
-		Gdx.app.log(tag, message, exception);
+		Mdx.log.info(tag, message);
+		exception.printStackTrace();
 	}
 
 	@Override
 	public void error (String tag, String message) {
-		Gdx.app.error(tag, message);
+		Mdx.log.error(tag, message);
 	}
 
 	@Override
 	public void error (String tag, String message, Throwable exception) {
-		Gdx.app.error(tag, message, exception);
+		Mdx.log.error(tag, message);
+		exception.printStackTrace();
 	}
 
 }

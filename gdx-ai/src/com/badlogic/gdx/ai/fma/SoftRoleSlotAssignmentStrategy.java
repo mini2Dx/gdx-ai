@@ -16,10 +16,10 @@
 
 package com.badlogic.gdx.ai.fma;
 
-import com.badlogic.gdx.math.Vector;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.BooleanArray;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import org.mini2Dx.core.exception.MdxException;
+import org.mini2Dx.gdx.math.Vector;
+import org.mini2Dx.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.BooleanArray;
 
 /** {@code SoftRoleSlotAssignmentStrategy} is a concrete implementation of {@link BoundedSlotAssignmentStrategy} that supports soft
  * roles, i.e. roles that can be broken. Rather than a member having a list of roles it can fulfill, it has a set of values
@@ -140,7 +140,7 @@ public class SoftRoleSlotAssignmentStrategy<T extends Vector<T>> extends Bounded
 			//
 			// TODO
 			// Some sensible action should be taken, such as reporting to the player.
-			throw new GdxRuntimeException("SoftRoleSlotAssignmentStrategy cannot find valid slot assignment for member "
+			throw new MdxException("SoftRoleSlotAssignmentStrategy cannot find valid slot assignment for member "
 				+ memberDatum.member);
 		}
 

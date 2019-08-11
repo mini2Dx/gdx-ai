@@ -18,10 +18,10 @@ package com.badlogic.gdx.ai.msg;
 
 import com.badlogic.gdx.ai.GdxAI;
 import com.badlogic.gdx.ai.Timepiece;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.IntMap;
-import com.badlogic.gdx.utils.Pool;
-import com.badlogic.gdx.utils.reflect.ClassReflection;
+import org.mini2Dx.core.Mdx;
+import org.mini2Dx.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.IntMap;
+import org.mini2Dx.gdx.utils.Pool;
 
 /** A {@code MessageDispatcher} is in charge of the creation, dispatch, and management of telegrams.
  * 
@@ -82,7 +82,7 @@ public class MessageDispatcher implements Telegraph {
 				TelegramProvider provider = providers.get(i);
 				Object info = provider.provideMessageInfo(msg, listener);
 				if (info != null) {
-					Telegraph sender = ClassReflection.isInstance(Telegraph.class, provider) ? (Telegraph)provider : null;
+					Telegraph sender = Mdx.reflect.isInstanceOf(Telegraph.class, provider) ? (Telegraph)provider : null;
 					dispatchMessage(0, sender, listener, msg, info, false);
 				}
 			}

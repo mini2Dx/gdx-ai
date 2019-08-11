@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.fma;
 
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** A {@code SlotAssignment} instance represents the assignment of a single {@link FormationMember} to its slot in the
  * {@link Formation}.

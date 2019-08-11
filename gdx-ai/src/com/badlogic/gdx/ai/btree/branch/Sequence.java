@@ -18,7 +18,7 @@ package com.badlogic.gdx.ai.btree.branch;
 
 import com.badlogic.gdx.ai.btree.SingleRunningChildBranch;
 import com.badlogic.gdx.ai.btree.Task;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A {@code Sequence} is a branch task that runs every children until one of them fails. If a child task succeeds, the selector
  * will start and run the next child task.

@@ -17,8 +17,8 @@
 package com.badlogic.gdx.ai.fma.patterns;
 
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.MathUtils;
+import org.mini2Dx.gdx.math.Vector;
 
 /** The offensive circle posts members around the circumference of a circle, so their fronts are to the center of the circle. The
  * circle can consist of any number of members. Although a huge number of members might look silly, this implementation doesn't

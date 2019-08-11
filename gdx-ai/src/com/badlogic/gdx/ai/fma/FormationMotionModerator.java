@@ -17,8 +17,8 @@
 package com.badlogic.gdx.ai.fma;
 
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Vector;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.math.Vector;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A {@code FormationMotionModerator} moderates the movement of the formation based on the current positions of the members in its
  * slots: in effect to keep the anchor point on a leash. If the members in the slots are having trouble reaching their targets,

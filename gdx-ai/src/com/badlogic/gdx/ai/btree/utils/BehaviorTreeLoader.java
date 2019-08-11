@@ -16,67 +16,60 @@
 
 package com.badlogic.gdx.ai.btree.utils;
 
-import java.io.Reader;
-
 import com.badlogic.gdx.ai.btree.BehaviorTree;
-import com.badlogic.gdx.assets.AssetDescriptor;
-import com.badlogic.gdx.assets.AssetLoaderParameters;
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.assets.loaders.AssetLoader;
-import com.badlogic.gdx.assets.loaders.AsynchronousAssetLoader;
-import com.badlogic.gdx.assets.loaders.FileHandleResolver;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.StreamUtils;
+import org.mini2Dx.core.assets.*;
+import org.mini2Dx.gdx.json.StreamUtils;
+import org.mini2Dx.gdx.utils.Array;
+
+import java.io.IOException;
+import java.io.Reader;
 
 /** {@link AssetLoader} for {@link BehaviorTree} instances. The behavior tree is loaded asynchronously.
  * 
  * @author davebaol */
 @SuppressWarnings("rawtypes")
-public class BehaviorTreeLoader extends AsynchronousAssetLoader<BehaviorTree, BehaviorTreeLoader.BehaviorTreeParameter> {
-
-	public BehaviorTreeLoader (FileHandleResolver resolver) {
-		super(resolver);
-	}
+public class BehaviorTreeLoader implements AsyncAssetLoader<BehaviorTree> {
 
 	BehaviorTree behaviorTree;
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public void loadAsync (AssetManager manager, String fileName, FileHandle file, BehaviorTreeParameter parameter) {
+	public void loadOnAsyncThread(AssetDescriptor assetDescriptor, AsyncLoadingCache asyncLoadingCache) {
 		this.behaviorTree = null;
 
 		Object blackboard = null;
 		BehaviorTreeParser parser = null;
-		if (parameter != null) {
-			blackboard = parameter.blackboard;
-			parser = parameter.parser;
+		if (assetDescriptor.getParameters() != null) {
+			BehaviorTreeParameter treeParameter = (BehaviorTreeParameter) assetDescriptor.getParameters();
+			blackboard = treeParameter.blackboard;
+			parser = treeParameter.parser;
 		}
 
 		if (parser == null) parser = new BehaviorTreeParser();
 
 		Reader reader = null;
 		try {
-			reader = file.reader();
+			reader = assetDescriptor.getResolvedFileHandle().reader();
 			this.behaviorTree = parser.parse(reader, blackboard);
+		} catch (IOException e) {
+			e.printStackTrace();
 		} finally {
 			StreamUtils.closeQuietly(reader);
 		}
 	}
 
 	@Override
-	public BehaviorTree loadSync (AssetManager manager, String fileName, FileHandle file, BehaviorTreeParameter parameter) {
+	public BehaviorTree loadOnGameThread(AssetManager assetManager, AssetDescriptor assetDescriptor, AsyncLoadingCache asyncLoadingCache) {
 		BehaviorTree bundle = this.behaviorTree;
 		this.behaviorTree = null;
 		return bundle;
 	}
 
 	@Override
-	public Array<AssetDescriptor> getDependencies (String fileName, FileHandle file, BehaviorTreeParameter parameter) {
+	public Array<AssetDescriptor> getDependencies(AssetDescriptor assetDescriptor, AsyncLoadingCache asyncLoadingCache) {
 		return null;
 	}
 
-	public static class BehaviorTreeParameter extends AssetLoaderParameters<BehaviorTree> {
+	public static class BehaviorTreeParameter implements AssetProperties<BehaviorTree> {
 		public final Object blackboard;
 		public final BehaviorTreeParser parser;
 

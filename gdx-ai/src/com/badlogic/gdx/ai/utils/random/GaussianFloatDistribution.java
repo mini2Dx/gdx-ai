@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.utils.random;
 
-import com.badlogic.gdx.math.MathUtils;
+import org.mini2Dx.gdx.math.MathUtils;
 
 /** @author davebaol */
 public final class GaussianFloatDistribution extends FloatDistribution {
@@ -33,7 +33,7 @@ public final class GaussianFloatDistribution extends FloatDistribution {
 
 	@Override
 	public float nextFloat () {
-		return mean + (float)MathUtils.random.nextGaussian() * standardDeviation;
+		return mean + (float) MathUtils.random.nextGaussian() * standardDeviation;
 	}
 
 	public float getMean () {

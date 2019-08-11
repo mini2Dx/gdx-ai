@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.pfa;
 
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** A request for interruptible path smoothing.
  * 

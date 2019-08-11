@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.ai.btree;
 
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.math.MathUtils;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A {@code SingleRunningChildBranch} task is a branch task that supports only one running child at a time.
  * 

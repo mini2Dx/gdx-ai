@@ -18,12 +18,11 @@ package com.badlogic.gdx.ai.btree.branch;
 
 import com.badlogic.gdx.ai.btree.BranchTask;
 import com.badlogic.gdx.ai.btree.Task;
-import com.badlogic.gdx.ai.btree.Task.Status;
 import com.badlogic.gdx.ai.btree.annotation.TaskAttribute;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A {@code Parallel} is a special branch task that runs all children when stepped. 
- * Its actual behavior depends on its {@link orchestrator} and {@link policy}.<br>
+ * Its actual behavior depends on its {@link Orchestrator} and {@link Policy}.<br>
  * <br>
  * The execution of the parallel task's children depends on its {@link #orchestrator}:
  * <ul>

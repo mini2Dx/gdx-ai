@@ -16,36 +16,25 @@
 
 package com.badlogic.gdx.ai;
 
+import org.mini2Dx.core.Mdx;
+import org.mini2Dx.core.files.*;
+
 import java.io.File;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Files.FileType;
-import com.badlogic.gdx.assets.loaders.FileHandleResolver;
-import com.badlogic.gdx.assets.loaders.resolvers.AbsoluteFileHandleResolver;
-import com.badlogic.gdx.assets.loaders.resolvers.ClasspathFileHandleResolver;
-import com.badlogic.gdx.assets.loaders.resolvers.ExternalFileHandleResolver;
-import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
-import com.badlogic.gdx.assets.loaders.resolvers.LocalFileHandleResolver;
-import com.badlogic.gdx.files.FileHandle;
-
 /** @author davebaol */
-public class GdxFileSystem implements FileSystem {
+public class MdxFileSystem implements FileSystem {
 
-	public GdxFileSystem () {
+	public MdxFileSystem() {
 	}
 
 	@Override
 	public FileHandleResolver newResolver (FileType fileType) {
 		switch (fileType) {
-		case Absolute:
-			return new AbsoluteFileHandleResolver();
-		case Classpath:
-			return new ClasspathFileHandleResolver();
-		case External:
-			return new ExternalFileHandleResolver();
-		case Internal:
+		case INTERNAL:
 			return new InternalFileHandleResolver();
-		case Local:
+		case EXTERNAL:
+			return new ExternalFileHandleResolver();
+		case LOCAL:
 			return new LocalFileHandleResolver();
 		}
 		return null; // Should never happen
@@ -53,22 +42,40 @@ public class GdxFileSystem implements FileSystem {
 
 	@Override
 	public FileHandle newFileHandle (String fileName) {
-		return Gdx.files.absolute(fileName);
+		return Mdx.files.external(fileName);
 	}
 
 	@Override
 	public FileHandle newFileHandle (File file) {
-		return Gdx.files.absolute(file.getAbsolutePath());
+		return Mdx.files.external(file.getAbsolutePath());
 	}
 
 	@Override
 	public FileHandle newFileHandle (String fileName, FileType type) {
-		return Gdx.files.getFileHandle(fileName, type);
+		switch(type)
+		{
+		default:
+		case INTERNAL:
+			return Mdx.files.internal(fileName);
+		case EXTERNAL:
+			return Mdx.files.external(fileName);
+		case LOCAL:
+			return Mdx.files.local(fileName);
+		}
 	}
 
 	@Override
 	public FileHandle newFileHandle (File file, FileType type) {
-		return Gdx.files.getFileHandle(file.getPath(), type);
+		switch(type)
+		{
+		default:
+		case INTERNAL:
+			return Mdx.files.internal(file.getPath());
+		case EXTERNAL:
+			return Mdx.files.external(file.getPath());
+		case LOCAL:
+			return Mdx.files.local(file.getPath());
+		}
 	}
 
 }

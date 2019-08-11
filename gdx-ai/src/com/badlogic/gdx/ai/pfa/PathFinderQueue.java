@@ -20,7 +20,7 @@ import com.badlogic.gdx.ai.msg.Telegram;
 import com.badlogic.gdx.ai.msg.Telegraph;
 import com.badlogic.gdx.ai.sched.Schedulable;
 import com.badlogic.gdx.ai.utils.CircularBuffer;
-import com.badlogic.gdx.utils.TimeUtils;
+import org.mini2Dx.gdx.utils.TimeUtils;
 
 /** @param <N> Type of node
  * 

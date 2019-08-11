@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.tests.steer.scene2d;
 
-import com.badlogic.gdx.math.Vector2;
+import org.mini2Dx.gdx.math.Vector2;
 
 public final class Scene2dSteeringUtils {
 

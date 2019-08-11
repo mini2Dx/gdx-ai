@@ -18,8 +18,8 @@ package com.badlogic.gdx.ai.pfa;
 
 import com.badlogic.gdx.ai.utils.Ray;
 import com.badlogic.gdx.ai.utils.RaycastCollisionDetector;
-import com.badlogic.gdx.math.Vector;
-import com.badlogic.gdx.utils.TimeUtils;
+import org.mini2Dx.gdx.math.Vector;
+import org.mini2Dx.gdx.utils.TimeUtils;
 
 /** A {@code PathSmoother} takes a {@link SmoothableGraphPath} and transforms it by linking directly the nodes that are in line of
  * sight. The smoothed path contains at most as many nodes as the original path. Also, the nodes in the smoothed path are unlikely

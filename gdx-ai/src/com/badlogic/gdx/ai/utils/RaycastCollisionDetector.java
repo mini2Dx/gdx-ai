@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.utils;
 
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** A {@code RaycastCollisionDetector} finds the closest intersection between a ray and any object in the game world.
  * 

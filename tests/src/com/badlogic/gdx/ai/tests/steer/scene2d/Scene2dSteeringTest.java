@@ -29,7 +29,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import org.mini2Dx.core.exception.MdxException;
 
 /** Base class for scene2d steering behavior tests.
  * 
@@ -129,7 +129,7 @@ public abstract class Scene2dSteeringTest extends SteeringTestBase {
 			}
 			return;
 		}
-		throw new GdxRuntimeException("Probable infinite loop detected");
+		throw new MdxException("Probable infinite loop detected");
 	}
 
 	protected void setRandomOrientation (SteeringActor character) {

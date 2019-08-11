@@ -19,7 +19,6 @@ package com.badlogic.gdx.ai.btree.utils;
 import com.badlogic.gdx.ai.btree.BehaviorTree;
 import com.badlogic.gdx.ai.btree.Task;
 import com.badlogic.gdx.ai.btree.TaskCloneException;
-import com.badlogic.gdx.utils.SerializationException;
 
 /** The {@code BehaviorTreeLibraryManager} is a singleton in charge of the creation of behavior trees using the underlying library.
  * If no library is explicitly set (see the method {@link #setLibrary(BehaviorTreeLibrary)}), a default library instantiated by
@@ -56,7 +55,7 @@ public final class BehaviorTreeLibraryManager {
 	/** Creates the root task of {@link BehaviorTree} for the specified reference.
 	 * @param treeReference the tree identifier, typically a path
 	 * @return the root task of the tree cloned from the archetype.
-	 * @throws SerializationException if the reference cannot be successfully parsed.
+	 * @throws org.mini2Dx.core.exception.MdxException if the reference cannot be successfully parsed.
 	 * @throws TaskCloneException if the archetype cannot be successfully parsed. */
 	public <T> Task<T> createRootTask (String treeReference) {
 		return library.createRootTask(treeReference);
@@ -65,7 +64,7 @@ public final class BehaviorTreeLibraryManager {
 	/** Creates the {@link BehaviorTree} for the specified reference.
 	 * @param treeReference the tree identifier, typically a path
 	 * @return the tree cloned from the archetype.
-	 * @throws SerializationException if the reference cannot be successfully parsed.
+	 * @throws org.mini2Dx.core.exception.MdxException if the reference cannot be successfully parsed.
 	 * @throws TaskCloneException if the archetype cannot be successfully parsed. */
 	public <T> BehaviorTree<T> createBehaviorTree (String treeReference) {
 		return library.createBehaviorTree(treeReference);
@@ -75,7 +74,7 @@ public final class BehaviorTreeLibraryManager {
 	 * @param treeReference the tree identifier, typically a path
 	 * @param blackboard the blackboard object (it can be {@code null}).
 	 * @return the tree cloned from the archetype.
-	 * @throws SerializationException if the reference cannot be successfully parsed.
+	 * @throws org.mini2Dx.core.exception.MdxException if the reference cannot be successfully parsed.
 	 * @throws TaskCloneException if the archetype cannot be successfully parsed. */
 	public <T> BehaviorTree<T> createBehaviorTree (String treeReference, T blackboard) {
 		return library.createBehaviorTree(treeReference, blackboard);

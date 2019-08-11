@@ -18,7 +18,7 @@ package com.badlogic.gdx.ai.sched;
 
 import com.badlogic.gdx.ai.sched.SchedulerBase.SchedulableRecord;
 import com.badlogic.gdx.ai.utils.ArithmeticUtils;
-import com.badlogic.gdx.utils.TimeUtils;
+import org.mini2Dx.gdx.utils.TimeUtils;
 
 /** A {@code LoadBalancingScheduler} understands the time it has to run and distributes this time among the tasks that need to be
  * run. This scheduler splits the time it is given according to the number of tasks that must be run on this frame. To adjust for

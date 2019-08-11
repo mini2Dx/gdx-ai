@@ -21,7 +21,7 @@ import com.badlogic.gdx.ai.steer.Limiter;
 import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.steer.SteerableAdapter;
 import com.badlogic.gdx.ai.steer.SteeringAcceleration;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** First the {@code Jump} behavior calculates the linear velocity required to achieve the jump. If the calculated velocity doesn't
  * exceed the maximum linear velocity the jump is achievable; otherwise it's not. In either cases, the given callback gets

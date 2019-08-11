@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.utils;
 
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** A {@code Ray} is made up of a starting point and an ending point.
  * 

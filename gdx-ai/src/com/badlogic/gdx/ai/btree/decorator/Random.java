@@ -24,7 +24,7 @@ import com.badlogic.gdx.ai.btree.leaf.Failure;
 import com.badlogic.gdx.ai.btree.leaf.Success;
 import com.badlogic.gdx.ai.utils.random.ConstantFloatDistribution;
 import com.badlogic.gdx.ai.utils.random.FloatDistribution;
-import com.badlogic.gdx.math.MathUtils;
+import org.mini2Dx.gdx.math.MathUtils;
 
 /** The {@code Random} decorator succeeds with the specified probability, regardless of whether the wrapped task fails or succeeds.
  * Also, the wrapped task is optional, meaning that this decorator can act like a leaf task.

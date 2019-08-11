@@ -17,9 +17,9 @@
 package com.badlogic.gdx.ai.btree;
 
 import com.badlogic.gdx.ai.btree.annotation.TaskConstraint;
-import com.badlogic.gdx.utils.Pool.Poolable;
-import com.badlogic.gdx.utils.reflect.ClassReflection;
-import com.badlogic.gdx.utils.reflect.ReflectionException;
+import org.mini2Dx.core.Mdx;
+import org.mini2Dx.core.exception.MdxException;
+import org.mini2Dx.gdx.utils.Pool;
 
 /** This is the abstract base class of all behavior tree tasks. The {@code Task} of a behavior tree has a status, one control and a
  * list of children.
@@ -29,7 +29,7 @@ import com.badlogic.gdx.utils.reflect.ReflectionException;
  * @author implicit-invocation
  * @author davebaol */
 @TaskConstraint
-public abstract class Task<E> implements Poolable {
+public abstract class Task<E> implements Pool.Poolable {
 
 	/** The enumeration of the values that a task's status can have.
 	 * 
@@ -264,10 +264,10 @@ public abstract class Task<E> implements Poolable {
 			}
 		}
 		try {
-			Task<E> clone = copyTo(ClassReflection.newInstance(this.getClass()));
+			Task<E> clone = copyTo((Task<E>) Mdx.reflect.newInstance(this.getClass()));
 			clone.guard = guard == null ? null : guard.cloneTask();
 			return clone;
-		} catch (ReflectionException e) {
+		} catch (MdxException e) {
 			throw new TaskCloneException(e);
 		}
 	}

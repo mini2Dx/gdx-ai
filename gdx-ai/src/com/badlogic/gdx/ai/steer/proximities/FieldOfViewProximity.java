@@ -19,7 +19,7 @@ package com.badlogic.gdx.ai.steer.proximities;
 import com.badlogic.gdx.ai.GdxAI;
 import com.badlogic.gdx.ai.Timepiece;
 import com.badlogic.gdx.ai.steer.Steerable;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code FieldOfViewProximity} emulates the peripheral vision of the owner as if it had eyes. Any agents contained in the
  * specified list that are within the field of view of the owner are considered owner's neighbors. The field of view is determined

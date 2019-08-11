@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.ai.fma;
 
-import com.badlogic.gdx.math.Vector;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.math.Vector;
+import org.mini2Dx.gdx.utils.Array;
 
 /** {@code FreeSlotAssignmentStrategy} is the simplest implementation of {@link SlotAssignmentStrategy}. It simply go through
  * each assignment in the list and assign sequential slot numbers. The number of slots is just the length of the list.

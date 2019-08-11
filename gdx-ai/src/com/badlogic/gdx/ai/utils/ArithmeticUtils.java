@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.utils;
 
-import com.badlogic.gdx.math.MathUtils;
+import org.mini2Dx.gdx.math.MathUtils;
 
 /** Some useful math functions.
  * 

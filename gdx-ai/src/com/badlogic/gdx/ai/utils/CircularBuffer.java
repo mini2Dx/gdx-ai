@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.utils;
 
-import com.badlogic.gdx.utils.reflect.ArrayReflection;
+import org.mini2Dx.core.Mdx;
 
 /** A circular buffer, possibly resizable.
  * 
@@ -138,7 +138,7 @@ public class CircularBuffer<T> {
 	 * @param newCapacity the new capacity */
 	protected void resize (int newCapacity) {
 		@SuppressWarnings("unchecked")
-		T[] newItems = (T[])ArrayReflection.newInstance(items.getClass().getComponentType(), newCapacity);
+		T[] newItems = (T[]) Mdx.reflect.newArray(items.getClass().getComponentType(), newCapacity);
 		if (tail > head) {
 			System.arraycopy(items, head, newItems, 0, size);
 		} else if (size > 0) { // NOTE: when head == tail the buffer can be empty or full

@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.steer;
 
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code SteeringAcceleration} is a movement requested by the steering system. It is made up of two components, linear and angular
  * acceleration.

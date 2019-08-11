@@ -16,11 +16,11 @@
 
 package com.badlogic.gdx.ai.msg;
 
-import com.badlogic.gdx.utils.Pool.Poolable;
+import org.mini2Dx.gdx.utils.Pool;
 
 /** A Telegram is the container of a message. The {@link MessageDispatcher} manages telegram life-cycle.
  * @author davebaol */
-public class Telegram implements Comparable<Telegram>, Poolable {
+public class Telegram implements Comparable<Telegram>, Pool.Poolable {
 
 	/** Indicates that the sender doesn't need any return receipt */
 	public static final int RETURN_RECEIPT_UNNEEDED = 0;

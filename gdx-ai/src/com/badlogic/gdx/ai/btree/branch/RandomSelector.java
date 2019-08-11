@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.btree.branch;
 
 import com.badlogic.gdx.ai.btree.Task;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A {@code RandomSelector} is a selector task's variant that runs its children in a random order.
  * 

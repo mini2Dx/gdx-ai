@@ -54,7 +54,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.utils.MdxException;
 
 /** A simple test to demonstrate the difference between Sequence task and Parallel task with sequence policy and join orchestrator.
  * 
@@ -327,7 +327,7 @@ public class ParallelVsSequenceTest extends BehaviorTreeTestBase {
 				}
 				return;
 			}
-			throw new GdxRuntimeException("Probable infinite loop detected");
+			throw new MdxException("Probable infinite loop detected");
 		}
 
 		protected void setRandomOrientation (SteeringActor character) {

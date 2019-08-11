@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.btree;
 
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 /** The behavior tree itself.
  * 

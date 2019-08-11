@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.tests.pfa.tests.tiled;
 
 import com.badlogic.gdx.ai.pfa.Connection;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A node for a {@link TiledGraph}.
  * 

@@ -18,7 +18,7 @@ package com.badlogic.gdx.ai.steer.behaviors;
 
 import com.badlogic.gdx.ai.steer.Limiter;
 import com.badlogic.gdx.ai.steer.Steerable;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code Evade} behavior is almost the same as {@link Pursue} except that the agent flees from the estimated future position of
  * the pursuer. Indeed, reversing the acceleration is all we have to do.

@@ -17,8 +17,8 @@
 package com.badlogic.gdx.ai.sched;
 
 import com.badlogic.gdx.ai.utils.ArithmeticUtils;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.IntArray;
+import org.mini2Dx.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.IntArray;
 
 /** @author davebaol */
 public abstract class SchedulerBase<T extends SchedulerBase.SchedulableRecord> implements Scheduler {

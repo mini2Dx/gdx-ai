@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.ai.fma;
 
-import com.badlogic.gdx.math.Vector;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.math.Vector;
+import org.mini2Dx.gdx.utils.Array;
 
 /** {@code BoundedSlotAssignmentStrategy} is an abstract implementation of {@link SlotAssignmentStrategy} that supports roles.
  * Generally speaking, there are hard and soft roles. Hard roles cannot be broken, soft roles can.

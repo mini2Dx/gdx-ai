@@ -1,9 +1,8 @@
 package com.badlogic.gdx.ai.btree.utils;
 
 import com.badlogic.gdx.ai.btree.BehaviorTree;
-import com.badlogic.gdx.utils.ObjectMap;
-import com.badlogic.gdx.utils.ObjectMap.Entry;
-import com.badlogic.gdx.utils.Pool;
+import org.mini2Dx.gdx.utils.ObjectMap;
+import org.mini2Dx.gdx.utils.Pool;
 
 /** A {@code BehaviorTreeLibrary} using reference pool.
  * 
@@ -76,7 +75,7 @@ public class PooledBehaviorTreeLibrary extends BehaviorTreeLibrary
 	 * clear all pools.
 	 */
 	public void clear(){
-		for(Entry<String, Pool<BehaviorTree>> entry : pools.entries()){
+		for(ObjectMap.Entry<String, Pool<BehaviorTree>> entry : pools.entries()){
 			entry.value.clear();
 		}
 		pools.clear();

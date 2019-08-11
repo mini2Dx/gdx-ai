@@ -36,7 +36,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import org.mini2Dx.core.exception.MdxException;
 
 /** Base class for box2d steering behavior tests.
  * 
@@ -182,7 +182,7 @@ public abstract class Box2dSteeringTest extends SteeringTestBase {
 			}
 			return;
 		}
-		throw new GdxRuntimeException("Probable infinite loop detected");
+		throw new MdxException("Probable infinite loop detected");
 	}
 
 	protected Matrix4 transform = new Matrix4();

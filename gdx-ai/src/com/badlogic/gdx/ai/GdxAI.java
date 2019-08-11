@@ -16,8 +16,6 @@
 
 package com.badlogic.gdx.ai;
 
-import com.badlogic.gdx.Gdx;
-
 /** Environment class holding references to the {@link Timepiece}, {@link Logger} and {@link FileSystem} instances. The references
  * are held in static fields which allows static access to all sub systems.
  * <p>
@@ -44,8 +42,8 @@ public final class GdxAI {
 	}
 
 	private static Timepiece timepiece = new DefaultTimepiece();
-	private static Logger logger = Gdx.app == null ? new NullLogger() : new GdxLogger();
-	private static FileSystem fileSystem = Gdx.files == null ? new StandaloneFileSystem() : new GdxFileSystem();
+	private static Logger logger = new MdxLogger();
+	private static FileSystem fileSystem = new MdxFileSystem();
 
 	/** Returns the timepiece service. */
 	public static Timepiece getTimepiece () {

@@ -26,7 +26,7 @@ import java.io.Reader;
 import com.badlogic.gdx.ai.GdxAI;
 import com.badlogic.gdx.ai.btree.BehaviorTree;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.utils.MdxException;
 import com.badlogic.gdx.utils.SerializationException;
 import com.badlogic.gdx.utils.StreamUtils;
 
@@ -175,7 +175,7 @@ public abstract class BehaviorTreeReader {
 								break outer;
 							}
 						} catch (NumberFormatException nfe) {
-							throw new GdxRuntimeException("Attribute value must be a number, a boolean, a string or null");
+							throw new MdxException("Attribute value must be a number, a boolean, a string or null");
 						}
 					}
 				}

@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.pfa;
 
 import com.badlogic.gdx.ai.GdxAI;
-import com.badlogic.gdx.utils.TimeUtils;
+import org.mini2Dx.gdx.utils.TimeUtils;
 
 /** A {@code HierarchicalPathFinder} can find a path in an arbitrary {@link HierarchicalGraph} using the given {@link PathFinder},
  * known as level path finder, on each level of the hierarchy.

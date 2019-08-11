@@ -18,7 +18,7 @@ package com.badlogic.gdx.ai.steer.proximities;
 
 import com.badlogic.gdx.ai.steer.Proximity;
 import com.badlogic.gdx.ai.steer.Steerable;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code ProximityBase} is the base class for any concrete proximity based on an iterable collection of agents.
  * 

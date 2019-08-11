@@ -19,7 +19,7 @@ package com.badlogic.gdx.ai.steer.proximities;
 import com.badlogic.gdx.ai.GdxAI;
 import com.badlogic.gdx.ai.Timepiece;
 import com.badlogic.gdx.ai.steer.Steerable;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** A {@code RadiusProximity} elaborates any agents contained in the specified list that are within the radius of the owner.
  * <p>

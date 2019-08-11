@@ -16,13 +16,9 @@
 
 package com.badlogic.gdx.ai.steer.behaviors;
 
-import com.badlogic.gdx.ai.steer.GroupBehavior;
-import com.badlogic.gdx.ai.steer.Limiter;
-import com.badlogic.gdx.ai.steer.Proximity;
+import com.badlogic.gdx.ai.steer.*;
 import com.badlogic.gdx.ai.steer.Proximity.ProximityCallback;
-import com.badlogic.gdx.ai.steer.Steerable;
-import com.badlogic.gdx.ai.steer.SteeringAcceleration;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code Alignment} is a group behavior producing a linear acceleration that attempts to keep the owner aligned with the agents in
  * its immediate area defined by the given {@link Proximity}. The acceleration is calculated by first iterating through all the

@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.sched;
 
 import com.badlogic.gdx.ai.sched.PriorityScheduler.PrioritySchedulableRecord;
-import com.badlogic.gdx.utils.TimeUtils;
+import org.mini2Dx.gdx.utils.TimeUtils;
 
 /** A {@code PriorityScheduler} works like a {@link LoadBalancingScheduler} but allows different tasks to get a different share of
  * the available time by assigning a priority to each task. The higher the priority the longer the amount of the available time

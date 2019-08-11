@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.tests.steer.scene2d;
 
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Vector2;
+import org.mini2Dx.gdx.math.Vector2;
 
 public class Scene2dLocation implements Location<Vector2> {
 

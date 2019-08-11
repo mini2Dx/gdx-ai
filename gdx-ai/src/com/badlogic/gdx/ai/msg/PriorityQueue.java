@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.ai.msg;
 
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.badlogic.gdx.utils.ObjectSet;
+import org.mini2Dx.core.exception.MdxException;
+import org.mini2Dx.gdx.utils.ObjectSet;
 
 /** An unbounded priority queue based on a priority heap. The elements of the priority queue are ordered according to their
  * {@linkplain Comparable natural ordering}. A priority queue does not permit {@code null} elements.
@@ -203,7 +203,7 @@ public class PriorityQueue<E extends Comparable<E>> {
 	 * @param minCapacity the desired minimum capacity */
 	private void growToSize (int minCapacity) {
 		if (minCapacity < 0) // overflow
-			throw new GdxRuntimeException("Capacity upper limit exceeded.");
+			throw new MdxException("Capacity upper limit exceeded.");
 		int oldCapacity = queue.length;
 		// Double size if small; else grow by 50%
 		int newCapacity = (int)((oldCapacity < 64) ? ((oldCapacity + 1) * CAPACITY_RATIO_HI) : (oldCapacity * CAPACITY_RATIO_LOW));

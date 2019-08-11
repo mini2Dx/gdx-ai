@@ -20,7 +20,7 @@ import com.badlogic.gdx.ai.steer.Limiter;
 import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.steer.SteeringAcceleration;
 import com.badlogic.gdx.ai.steer.SteeringBehavior;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code Pursue} behavior produces a force that steers the agent towards the evader (the target). Actually it predicts where an
  * agent will be in time @{code t} and seeks towards that point to intercept it. We did this naturally playing tag as children,

@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.fma;
 
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** The {@code FormationPattern} interface represents the shape of a formation and generates the slot offsets, relative to its
  * anchor point. Since formations can be scalable the pattern must be able to determine if a given number of slots is supported.

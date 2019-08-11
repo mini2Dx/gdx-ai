@@ -27,7 +27,7 @@ import com.badlogic.gdx.ai.steer.utils.rays.SingleRayConfiguration;
 import com.badlogic.gdx.ai.utils.Collision;
 import com.badlogic.gdx.ai.utils.Ray;
 import com.badlogic.gdx.ai.utils.RaycastCollisionDetector;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** With the {@code RaycastObstacleAvoidance} the moving agent (the owner) casts one or more rays out in the direction of its
  * motion. If these rays collide with an obstacle, then a target is created that will avoid the collision, and the owner does a

@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.steer.utils;
 
 import com.badlogic.gdx.ai.steer.utils.Path.PathParam;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** The {@code Path} for an agent having path following behavior. A path can be shared by multiple path following behaviors because
  * its status is maintained in a {@link PathParam} local to each behavior.

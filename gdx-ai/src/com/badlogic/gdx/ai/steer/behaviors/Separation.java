@@ -16,13 +16,9 @@
 
 package com.badlogic.gdx.ai.steer.behaviors;
 
-import com.badlogic.gdx.ai.steer.GroupBehavior;
-import com.badlogic.gdx.ai.steer.Limiter;
-import com.badlogic.gdx.ai.steer.Proximity;
+import com.badlogic.gdx.ai.steer.*;
 import com.badlogic.gdx.ai.steer.Proximity.ProximityCallback;
-import com.badlogic.gdx.ai.steer.Steerable;
-import com.badlogic.gdx.ai.steer.SteeringAcceleration;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code Separation} is a group behavior producing a steering acceleration repelling from the other neighbors which are the agents
  * in the immediate area defined by the given {@link Proximity}. The acceleration is calculated by iterating through all the

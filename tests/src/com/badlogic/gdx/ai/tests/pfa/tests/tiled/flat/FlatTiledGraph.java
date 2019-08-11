@@ -19,7 +19,7 @@ package com.badlogic.gdx.ai.tests.pfa.tests.tiled.flat;
 import com.badlogic.gdx.ai.pfa.Connection;
 import com.badlogic.gdx.ai.tests.pfa.tests.tiled.DungeonUtils;
 import com.badlogic.gdx.ai.tests.pfa.tests.tiled.TiledGraph;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A random generated graph representing a flat tiled map.
  * 

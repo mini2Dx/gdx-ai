@@ -20,7 +20,8 @@ allprojects {
 
 ext {
 	projectGroup = "gdx-ai"
-	gdxVersion = '1.9.8'
+    gdxVersion = '1.9.8'
+	mdxVersion = '2.0.0-alpha.2'
 }
 
 /** needed to disable Java 8 doclint which throws errors **/
@@ -36,15 +37,14 @@ project(":gdx-ai") {
     apply from : '../publish.gradle'
 
     dependencies {
-        compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+        compile "org.mini2Dx:mini2Dx-core:$mdxVersion"
     }
 }
 
 project(":tests") {
     dependencies {
         compile project(":gdx-ai")
-        compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+        compile "org.mini2Dx:mini2Dx-desktop:$mdxVersion"
     }
 }
 

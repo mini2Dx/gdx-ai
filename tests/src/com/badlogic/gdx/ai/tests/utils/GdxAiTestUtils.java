@@ -29,8 +29,6 @@
 package com.badlogic.gdx.ai.tests.utils;
 
 import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
 /** Utility class to launch tests.
  * 

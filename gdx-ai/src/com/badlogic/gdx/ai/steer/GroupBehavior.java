@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.steer;
 
 import com.badlogic.gdx.ai.steer.Proximity.ProximityCallback;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code GroupBehavior} is the base class for the steering behaviors that take into consideration the agents in the game world
  * that are within the immediate area of the owner. This immediate area is defined by a {@link Proximity} that is in charge of

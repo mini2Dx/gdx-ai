@@ -20,7 +20,7 @@ import com.badlogic.gdx.ai.steer.Limiter;
 import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.steer.SteeringAcceleration;
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code Face} behavior makes the owner look at its target. It delegates to the {@link ReachOrientation} behavior to perform the
  * rotation but calculates the target orientation first based on target and owner position.

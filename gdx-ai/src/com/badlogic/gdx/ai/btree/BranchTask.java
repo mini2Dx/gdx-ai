@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.btree;
 
 import com.badlogic.gdx.ai.btree.annotation.TaskConstraint;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A branch task defines a behavior tree branch, contains logic of starting or running sub-branches and leaves
  * 

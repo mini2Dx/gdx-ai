@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.utils.random;
 
-import com.badlogic.gdx.math.MathUtils;
+import org.mini2Dx.gdx.math.MathUtils;
 
 /** @author davebaol */
 public final class TriangularFloatDistribution extends FloatDistribution {

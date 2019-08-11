@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.pfa;
 
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A graph is a collection of nodes, each one having a collection of outgoing {@link Connection connections}.
  * 

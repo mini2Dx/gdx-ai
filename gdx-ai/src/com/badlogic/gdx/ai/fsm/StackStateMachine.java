@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.fsm;
 
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A {@link StateMachine} implementation that keeps track of all previous {@link State}s via a stack. This makes sense for example
  * in case of a hierarchical menu structure where each menu screen is one state and one wants to navigate back to the main menu

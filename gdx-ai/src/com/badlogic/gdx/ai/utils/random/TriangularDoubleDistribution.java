@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.ai.utils.random;
 
-import com.badlogic.gdx.math.MathUtils;
+import org.mini2Dx.gdx.math.MathUtils;
 
 /** @author davebaol */
 public final class TriangularDoubleDistribution extends DoubleDistribution {
@@ -60,7 +60,7 @@ public final class TriangularDoubleDistribution extends DoubleDistribution {
 	/** Returns a triangularly distributed random number between {@code -high} (exclusive) and {@code high} (exclusive), where values
 	 * around zero are more likely.
 	 * <p>
-	 * This is an optimized version of {@link #randomTriangular(float, float, float) randomTriangular(-high, high, 0)}
+	 * This is an optimized version of randomTriangular(float, float, float) randomTriangular(-high, high, 0)
 	 * @param high the upper limit */
 	static double randomTriangular (double high) {
 		return (MathUtils.random.nextDouble() - MathUtils.random.nextDouble()) * high;

@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.steer;
 
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** An adapter class for {@link Steerable}. You can derive from this and only override what you are interested in. For example,
  * this comes in handy when you have to create on the fly a target for a particular behavior.

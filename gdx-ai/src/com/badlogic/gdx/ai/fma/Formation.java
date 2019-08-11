@@ -18,11 +18,11 @@ package com.badlogic.gdx.ai.fma;
 
 import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Matrix3;
-import com.badlogic.gdx.math.Vector;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.math.Matrix3;
+import org.mini2Dx.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector2;
+import org.mini2Dx.gdx.math.Vector3;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A {@code Formation} coordinates the movement of a group of characters so that they retain some group organization. Characters
  * belonging to a formation must implement the {@link FormationMember} interface. At its simplest, a formation can consist of

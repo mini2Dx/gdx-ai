@@ -23,7 +23,7 @@ import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.steer.SteeringAcceleration;
 import com.badlogic.gdx.ai.steer.proximities.FieldOfViewProximity;
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** This behavior attempts to position a owner so that an obstacle is always between itself and the agent (the hunter) it's trying
  * to hide from. First the distance to each of these obstacles is determined. Then the owner uses the arrive behavior to steer

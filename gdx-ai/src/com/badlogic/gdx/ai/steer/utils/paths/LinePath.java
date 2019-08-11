@@ -18,9 +18,9 @@ package com.badlogic.gdx.ai.steer.utils.paths;
 
 import com.badlogic.gdx.ai.steer.utils.Path;
 import com.badlogic.gdx.ai.steer.utils.paths.LinePath.LinePathParam;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.math.MathUtils;
+import org.mini2Dx.gdx.math.Vector;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A {@code LinePath} is a path for path following behaviors that is made up of a series of waypoints. Each waypoint is connected
  * to the successor with a {@link Segment}.

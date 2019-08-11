@@ -18,7 +18,7 @@ package com.badlogic.gdx.ai.btree.branch;
 
 import com.badlogic.gdx.ai.btree.SingleRunningChildBranch;
 import com.badlogic.gdx.ai.btree.Task;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A {@code Selector} is a branch task that runs every children until one of them succeeds. If a child task fails, the selector
  * will start and run the next child task.

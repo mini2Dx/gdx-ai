@@ -20,7 +20,7 @@ import com.badlogic.gdx.ai.GdxAI;
 import com.badlogic.gdx.ai.msg.MessageDispatcher;
 import com.badlogic.gdx.ai.msg.MessageManager;
 import com.badlogic.gdx.ai.msg.Telegraph;
-import com.badlogic.gdx.utils.TimeUtils;
+import org.mini2Dx.gdx.utils.TimeUtils;
 
 /** A {@code PathFinderRequestControl} manages execution and resume of any interruptible {@link PathFinderRequest}.
  * 

@@ -18,7 +18,7 @@ package com.badlogic.gdx.ai.steer.utils.rays;
 
 import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.utils.Ray;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** As the name suggests, a {@code SingleRayConfiguration} uses just one ray cast.
  * <p>

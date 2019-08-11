@@ -20,7 +20,7 @@ import com.badlogic.gdx.ai.steer.Limiter;
 import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.steer.SteeringAcceleration;
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code Interpose} behavior produces a steering force that moves the owner to a point along the imaginary line connecting two
  * other agents. A bodyguard taking a bullet for his employer or a soccer player intercepting a pass are examples of this type of

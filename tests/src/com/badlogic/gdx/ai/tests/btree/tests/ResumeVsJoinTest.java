@@ -39,8 +39,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -53,7 +51,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import org.mini2Dx.core.exception.MdxException;
+import org.mini2Dx.gdx.math.MathUtils;
+import org.mini2Dx.gdx.math.Vector2;
 
 /** A simple test to demonstrate the difference between the resume and join orchestrators in the Parallel task
  * @author Thomas Cashman
@@ -327,7 +327,7 @@ public class ResumeVsJoinTest extends BehaviorTreeTestBase {
 				}
 				return;
 			}
-			throw new GdxRuntimeException("Probable infinite loop detected");
+			throw new MdxException("Probable infinite loop detected");
 		}
 
 		protected void setRandomOrientation (SteeringActor character) {

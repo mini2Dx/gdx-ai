@@ -16,8 +16,7 @@
 
 package com.badlogic.gdx.ai.utils;
 
-import com.badlogic.gdx.ai.utils.NonBlockingSemaphore;
-import com.badlogic.gdx.utils.ObjectMap;
+import org.mini2Dx.gdx.utils.ObjectMap;
 
 /** @author davebaol */
 public class NonBlockingSemaphoreRepository {

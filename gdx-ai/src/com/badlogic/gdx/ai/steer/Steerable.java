@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.steer;
 
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** A {@code Steerable} is a {@link Location} that gives access to the character's data required by steering system.
  * <p>

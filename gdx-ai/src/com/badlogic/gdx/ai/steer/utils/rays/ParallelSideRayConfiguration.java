@@ -18,8 +18,8 @@ package com.badlogic.gdx.ai.steer.utils.rays;
 
 import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.utils.Ray;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.MathUtils;
+import org.mini2Dx.gdx.math.Vector;
 
 /** A {@code ParallelSideRayConfiguration} uses two rays parallel to the direction of motion. The rays have the same length and
  * opposite side offset.

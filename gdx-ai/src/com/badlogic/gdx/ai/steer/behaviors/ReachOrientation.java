@@ -22,7 +22,7 @@ import com.badlogic.gdx.ai.steer.SteeringAcceleration;
 import com.badlogic.gdx.ai.steer.SteeringBehavior;
 import com.badlogic.gdx.ai.utils.ArithmeticUtils;
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code ReachOrientation} tries to align the owner to the target. It pays no attention to the position or velocity of the owner
  * or target. This steering behavior does not produce any linear acceleration; it only responds by turning.

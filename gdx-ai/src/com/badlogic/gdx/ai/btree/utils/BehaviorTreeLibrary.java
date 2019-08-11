@@ -16,16 +16,16 @@
 
 package com.badlogic.gdx.ai.btree.utils;
 
-import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.ai.FileSystem;
 import com.badlogic.gdx.ai.GdxAI;
 import com.badlogic.gdx.ai.btree.BehaviorTree;
 import com.badlogic.gdx.ai.btree.Task;
 import com.badlogic.gdx.ai.btree.TaskCloneException;
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.assets.loaders.FileHandleResolver;
-import com.badlogic.gdx.utils.ObjectMap;
-import com.badlogic.gdx.utils.SerializationException;
+import org.mini2Dx.core.assets.AssetManager;
+import org.mini2Dx.core.exception.SerializationException;
+import org.mini2Dx.core.files.FileHandleResolver;
+import org.mini2Dx.core.files.FileType;
+import org.mini2Dx.gdx.utils.ObjectMap;
 
 /** A {@code BehaviorTreeLibrary} is a repository of behavior tree archetypes. Behavior tree archetypes never run. Indeed, they are
  * only cloned to create behavior tree instances that can run.
@@ -49,7 +49,7 @@ public class BehaviorTreeLibrary {
 	 * {@link FileSystem#newResolver(FileType) GdxAI.getFileSystem().newResolver(FileType.Internal)}.
 	 * @param parseDebugLevel the debug level the parser will use */
 	public BehaviorTreeLibrary (int parseDebugLevel) {
-		this(GdxAI.getFileSystem().newResolver(FileType.Internal), parseDebugLevel);
+		this(GdxAI.getFileSystem().newResolver(FileType.INTERNAL), parseDebugLevel);
 	}
 
 	/** Creates a {@code BehaviorTreeLibrary} with the given resolver.

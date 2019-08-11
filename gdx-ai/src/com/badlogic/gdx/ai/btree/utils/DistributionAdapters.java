@@ -16,28 +16,10 @@
 
 package com.badlogic.gdx.ai.btree.utils;
 
-import java.util.StringTokenizer;
+import com.badlogic.gdx.ai.utils.random.*;
+import org.mini2Dx.gdx.utils.ObjectMap;
 
-import com.badlogic.gdx.ai.utils.random.ConstantDoubleDistribution;
-import com.badlogic.gdx.ai.utils.random.ConstantFloatDistribution;
-import com.badlogic.gdx.ai.utils.random.ConstantIntegerDistribution;
-import com.badlogic.gdx.ai.utils.random.ConstantLongDistribution;
-import com.badlogic.gdx.ai.utils.random.Distribution;
-import com.badlogic.gdx.ai.utils.random.DoubleDistribution;
-import com.badlogic.gdx.ai.utils.random.FloatDistribution;
-import com.badlogic.gdx.ai.utils.random.GaussianDoubleDistribution;
-import com.badlogic.gdx.ai.utils.random.GaussianFloatDistribution;
-import com.badlogic.gdx.ai.utils.random.IntegerDistribution;
-import com.badlogic.gdx.ai.utils.random.LongDistribution;
-import com.badlogic.gdx.ai.utils.random.TriangularDoubleDistribution;
-import com.badlogic.gdx.ai.utils.random.TriangularFloatDistribution;
-import com.badlogic.gdx.ai.utils.random.TriangularIntegerDistribution;
-import com.badlogic.gdx.ai.utils.random.TriangularLongDistribution;
-import com.badlogic.gdx.ai.utils.random.UniformDoubleDistribution;
-import com.badlogic.gdx.ai.utils.random.UniformFloatDistribution;
-import com.badlogic.gdx.ai.utils.random.UniformIntegerDistribution;
-import com.badlogic.gdx.ai.utils.random.UniformLongDistribution;
-import com.badlogic.gdx.utils.ObjectMap;
+import java.util.StringTokenizer;
 
 /** @author davebaol */
 public class DistributionAdapters {

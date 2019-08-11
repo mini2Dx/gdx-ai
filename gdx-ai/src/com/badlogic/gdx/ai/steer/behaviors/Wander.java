@@ -22,8 +22,8 @@ import com.badlogic.gdx.ai.steer.Limiter;
 import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.steer.SteeringAcceleration;
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.MathUtils;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code Wander} behavior is designed to produce a steering acceleration that will give the impression of a random walk through
  * the agent's environment. You'll often find it a useful ingredient when creating an agent's behavior.

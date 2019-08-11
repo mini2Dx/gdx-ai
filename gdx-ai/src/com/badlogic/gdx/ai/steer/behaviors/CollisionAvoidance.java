@@ -16,13 +16,9 @@
 
 package com.badlogic.gdx.ai.steer.behaviors;
 
-import com.badlogic.gdx.ai.steer.GroupBehavior;
-import com.badlogic.gdx.ai.steer.Limiter;
-import com.badlogic.gdx.ai.steer.Proximity;
+import com.badlogic.gdx.ai.steer.*;
 import com.badlogic.gdx.ai.steer.Proximity.ProximityCallback;
-import com.badlogic.gdx.ai.steer.Steerable;
-import com.badlogic.gdx.ai.steer.SteeringAcceleration;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code CollisionAvoidance} behavior steers the owner to avoid obstacles lying in its path. An obstacle is any object that can be
  * approximated by a circle (or sphere, if you are working in 3D).

@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.ai.fma;
 
-import com.badlogic.gdx.math.Vector;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.math.Vector;
+import org.mini2Dx.gdx.utils.Array;
 
 /** This interface defines how each {@link FormationMember} is assigned to a slot in the {@link Formation}.
  * 

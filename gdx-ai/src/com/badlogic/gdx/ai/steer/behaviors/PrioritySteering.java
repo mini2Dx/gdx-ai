@@ -20,8 +20,8 @@ import com.badlogic.gdx.ai.steer.Limiter;
 import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.steer.SteeringAcceleration;
 import com.badlogic.gdx.ai.steer.SteeringBehavior;
-import com.badlogic.gdx.math.Vector;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.math.Vector;
+import org.mini2Dx.gdx.utils.Array;
 
 /** The {@code PrioritySteering} behavior iterates through the behaviors and returns the first non zero steering. It makes sense
  * since certain steering behaviors only request an acceleration in particular conditions. Unlike {@link Seek} or {@link Evade},

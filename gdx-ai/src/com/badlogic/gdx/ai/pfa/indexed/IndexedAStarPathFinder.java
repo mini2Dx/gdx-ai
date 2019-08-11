@@ -22,9 +22,8 @@ import com.badlogic.gdx.ai.pfa.Heuristic;
 import com.badlogic.gdx.ai.pfa.PathFinder;
 import com.badlogic.gdx.ai.pfa.PathFinderQueue;
 import com.badlogic.gdx.ai.pfa.PathFinderRequest;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.BinaryHeap;
-import com.badlogic.gdx.utils.TimeUtils;
+import org.mini2Dx.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.TimeUtils;
 
 /** A fully implemented {@link PathFinder} that can perform both interruptible and non-interruptible pathfinding.
  * <p>

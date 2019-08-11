@@ -20,17 +20,17 @@
 
 package com.badlogic.gdx.ai.btree.utils;
 
+import com.badlogic.gdx.ai.GdxAI;
+import com.badlogic.gdx.ai.btree.BehaviorTree;
+import org.mini2Dx.core.exception.MdxException;
+import org.mini2Dx.core.exception.SerializationException;
+import org.mini2Dx.core.files.FileHandle;
+import org.mini2Dx.gdx.json.StreamUtils;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-
-import com.badlogic.gdx.ai.GdxAI;
-import com.badlogic.gdx.ai.btree.BehaviorTree;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.badlogic.gdx.utils.SerializationException;
-import com.badlogic.gdx.utils.StreamUtils;
 
 /** An abstract event driven {@link BehaviorTree} parser.
  * 
@@ -91,7 +91,7 @@ public abstract class BehaviorTreeReader {
 			}
 			parse(data, 0, offset);
 		} catch (IOException ex) {
-			throw new SerializationException(ex);
+			throw new MdxException(ex.getMessage(), ex);
 		} finally {
 			StreamUtils.closeQuietly(reader);
 		}
@@ -104,7 +104,7 @@ public abstract class BehaviorTreeReader {
 		try {
 			parse(new InputStreamReader(input, "UTF-8"));
 		} catch (IOException ex) {
-			throw new SerializationException(ex);
+			throw new MdxException(ex.getMessage(), ex);
 		} finally {
 			StreamUtils.closeQuietly(input);
 		}
@@ -117,7 +117,7 @@ public abstract class BehaviorTreeReader {
 		try {
 			parse(file.reader("UTF-8"));
 		} catch (Exception ex) {
-			throw new SerializationException("Error parsing file: " + file, ex);
+			throw new MdxException(ex.getMessage(), ex);
 		}
 	}
 
@@ -262,7 +262,7 @@ case 1:
 								break outer;
 							}
 						} catch (NumberFormatException nfe) {
-							throw new GdxRuntimeException("Attribute value must be a number, a boolean, a string or null");
+							throw new MdxException("Attribute value must be a number, a boolean, a string or null");
 						}
 					}
 				}
@@ -460,7 +460,7 @@ case 4:
 								break outer;
 							}
 						} catch (NumberFormatException nfe) {
-							throw new GdxRuntimeException("Attribute value must be a number, a boolean, a string or null");
+							throw new MdxException("Attribute value must be a number, a boolean, a string or null");
 						}
 					}
 				}
@@ -538,10 +538,10 @@ case 5:
 		}
 
 		if (p < pe || (statementName != null && !taskProcessed)) {
-			throw new SerializationException("Error parsing behavior tree on line " + lineNumber + " near: " + new String(data, p, pe - p),
+			throw new MdxException("Error parsing behavior tree on line " + lineNumber + " near: " + new String(data, p, pe - p),
 				parseRuntimeEx);
 		} else if (parseRuntimeEx != null) {
-			throw new SerializationException("Error parsing behavior tree: " + new String(data), parseRuntimeEx);
+			throw new MdxException("Error parsing behavior tree: " + new String(data), parseRuntimeEx);
 		}
 	}
 
@@ -782,7 +782,7 @@ static final int btree_en_main = 29;
 				c = '\t';
 				break;
 			default:
-				throw new SerializationException("Illegal escaped character: \\" + c);
+				throw new MdxException("Illegal escaped character: \\" + c);
 			}
 			buffer.append(c);
 		}

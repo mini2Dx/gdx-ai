@@ -18,7 +18,7 @@ package com.badlogic.gdx.ai.btree.branch;
 
 import com.badlogic.gdx.ai.btree.BranchTask;
 import com.badlogic.gdx.ai.btree.Task;
-import com.badlogic.gdx.utils.Array;
+import org.mini2Dx.gdx.utils.Array;
 
 /** A {@code DynamicGuardSelector} is a branch task that executes the first child whose guard is evaluated to {@code true}. At
  * every AI cycle, the children's guards are re-evaluated, so if the guard of the running child is evaluated to {@code false}, it

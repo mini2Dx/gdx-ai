@@ -22,7 +22,7 @@ import com.badlogic.gdx.ai.steer.SteeringAcceleration;
 import com.badlogic.gdx.ai.steer.utils.Path;
 import com.badlogic.gdx.ai.steer.utils.Path.PathParam;
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code FollowPath} behavior produces a linear acceleration that moves the agent along the given path. First it calculates the
  * agent location based on the specified prediction time. Then it works out the position of the internal target based on the

@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.steer.proximities;
 
 import com.badlogic.gdx.ai.steer.Steerable;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** {@code InfiniteProximity} is likely the simplest type of Proximity one can imagine. All the agents contained in the specified
  * list are considered neighbors of the owner, excluded the owner itself (if it is part of the list).

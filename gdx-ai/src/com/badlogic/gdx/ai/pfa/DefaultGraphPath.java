@@ -16,9 +16,9 @@
 
 package com.badlogic.gdx.ai.pfa;
 
-import java.util.Iterator;
+import org.mini2Dx.gdx.utils.Array;
 
-import com.badlogic.gdx.utils.Array;
+import java.util.Iterator;
 
 /** Default implementation of a {@link GraphPath} that uses an internal {@link Array} to store nodes or connections.
  * 

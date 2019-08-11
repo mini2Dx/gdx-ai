@@ -17,7 +17,7 @@
 package com.badlogic.gdx.ai.fma;
 
 import com.badlogic.gdx.ai.utils.Location;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** Game characters coordinated by a {@link Formation} must implement this interface. Any {@code FormationMember} has a target
  * location which is the place where it should be in order to stay in formation. This target location is calculated by the

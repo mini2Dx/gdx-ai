@@ -20,7 +20,7 @@ import com.badlogic.gdx.ai.steer.Limiter;
 import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.steer.SteeringAcceleration;
 import com.badlogic.gdx.ai.steer.SteeringBehavior;
-import com.badlogic.gdx.math.Vector;
+import org.mini2Dx.gdx.math.Vector;
 
 /** The {@code FollowFlowField} behavior produces a linear acceleration that tries to align the motion of the owner with the local
  * tangent of a flow field. The flow field defines a mapping from a location in space to a flow vector. Any flow field can be used
