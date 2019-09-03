@@ -29,5 +29,5 @@ dependencies {
 }
 
 eclipse.project {
-    name = projectGroup + "-core"
+    name = "gdx-ai-core"
 }

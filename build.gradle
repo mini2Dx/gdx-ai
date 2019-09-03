@@ -7,6 +7,19 @@ buildscript {
         maven { url "https://oss.sonatype.org/service/local/repositories/releases/content/" }
         maven { url 'https://maven.google.com' }
     }
+    dependencies {
+        classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.9.0'
+    }
+}
+
+if(project.hasProperty('ossrhUser') && project.hasProperty("release")) {
+    apply plugin: "io.codearte.nexus-staging"
+
+    nexusStaging {
+        packageGroup = 'org.mini2Dx'
+        username = ossrhUser
+        password = ossrhPassword
+    }
 }
 
 allprojects {
@@ -25,7 +38,7 @@ allprojects {
 }
 
 ext {
-	projectGroup = "gdx-ai"
+    projectGroup = 'org.mini2Dx'
     gdxVersion = '1.9.8'
 	mdxVersion = '2.0.0-alpha.3'
 }
@@ -40,10 +53,75 @@ if (JavaVersion.current().isJava8Compatible()) {
 }
 
 project(":gdx-ai") {
-    apply from : '../publish.gradle'
+    apply plugin: "signing"
+    apply plugin: "maven"
+
+    group = "$projectGroup"
+    version = "$mdxVersion"
 
     dependencies {
         compile "org.mini2Dx:mini2Dx-core:$mdxVersion"
+    }
+
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    task javadocJar(type: Jar) {
+        classifier = 'javadoc'
+        from javadoc
+    }
+
+    artifacts {
+        archives javadocJar, sourcesJar
+    }
+
+    if(project.hasProperty('ossrhUser')) {
+        signing {
+            sign configurations.archives
+        }
+
+        uploadArchives {
+            repositories {
+                mavenDeployer {
+                    // POM signature
+                    beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+                    // Target repository
+                    repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                        authentication(userName: ossrhUser, password: ossrhPassword)
+                    }
+                    pom.project {
+                        name project.name
+                        description project.description
+                        packaging 'jar'
+                        url 'https://github.com/mini2Dx/mini2Dx'
+
+                        scm {
+                            connection 'scm:git:https://github.com/mini2Dx/mini2Dx.git'
+                            developerConnection 'scm:git:git@github.com:mini2Dx/mini2Dx.git'
+                            url 'https://github.com/mini2Dx/mini2Dx.git'
+                        }
+
+                        licenses {
+                            license {
+                                name 'The BSD 3-Clause License'
+                                url 'https://opensource.org/licenses/BSD-3-Clause'
+                                distribution 'repo'
+                            }
+                        }
+
+                        developers {
+                            developer {
+                                id = 'tomcashman'
+                                name = 'Thomas Cashman'
+                                email = 'thomascashman404@gmail.com'
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

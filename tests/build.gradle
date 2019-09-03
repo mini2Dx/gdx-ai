@@ -23,5 +23,5 @@ task launchBehaviorTests(dependsOn: classes, type: JavaExec) {
 
 
 eclipse.project {
-    name =  projectGroup + "-tests"
+    name = "gdx-ai-tests"
 }
