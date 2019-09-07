@@ -40,7 +40,7 @@ allprojects {
 ext {
     projectGroup = 'org.mini2Dx'
     gdxVersion = '1.9.8'
-	mdxVersion = '2.0.0-alpha.3'
+	mdxVersion = '2.0.0-alpha.4'
 }
 
 /** needed to disable Java 8 doclint which throws errors **/
