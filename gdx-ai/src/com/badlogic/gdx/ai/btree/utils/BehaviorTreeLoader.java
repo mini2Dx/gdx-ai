@@ -58,10 +58,10 @@ public class BehaviorTreeLoader implements AsyncAssetLoader<BehaviorTree> {
 	}
 
 	@Override
-	public BehaviorTree loadOnGameThread(AssetManager assetManager, AssetDescriptor assetDescriptor, AsyncLoadingCache asyncLoadingCache) {
-		BehaviorTree bundle = this.behaviorTree;
+	public boolean loadOnGameThread(AssetManager assetManager, AssetDescriptor<BehaviorTree> assetDescriptor, AsyncLoadingCache asyncLoadingCache, AssetLoaderResult<BehaviorTree> resultHolder) {
+		resultHolder.setResult(this.behaviorTree);
 		this.behaviorTree = null;
-		return bundle;
+		return true;
 	}
 
 	@Override

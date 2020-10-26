@@ -40,7 +40,7 @@ allprojects {
 ext {
     projectGroup = 'org.mini2Dx'
     gdxVersion = '1.9.8'
-	mdxVersion = '2.0.0-alpha.10'
+	mdxVersion = '2.0.0-alpha.34'
 }
 
 /** needed to disable Java 8 doclint which throws errors **/
@@ -60,7 +60,7 @@ project(":gdx-ai") {
     version = "$mdxVersion"
 
     dependencies {
-        compile "org.mini2Dx:mini2Dx-core:$mdxVersion"
+        compile "org.mini2Dx:mini2dx-core:$mdxVersion"
     }
 
     task sourcesJar(type: Jar) {
@@ -128,7 +128,7 @@ project(":gdx-ai") {
 project(":tests") {
     dependencies {
         compile project(":gdx-ai")
-        compile "org.mini2Dx:mini2Dx-libgdx-desktop:$mdxVersion"
+        compile "org.mini2Dx:mini2dx-libgdx-desktop-lwjgl2:$mdxVersion"
     }
 }
 

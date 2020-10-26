@@ -227,7 +227,7 @@ public class BehaviorTreeViewer<E> extends Table {
 
 	private void fill (IntArray taskSteps, TaskNode taskNode) {
 		taskSteps.add(taskNode.step);
-		for (Node child : taskNode.getChildren()) {
+		for (Object child : taskNode.getChildren()) {
 			fill(taskSteps, (TaskNode)child);
 		}
 	}
