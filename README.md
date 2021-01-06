@@ -9,7 +9,7 @@ The version number will always correspond to the mini2Dx version that the framew
 __Gradle__
 
 ```
-compile "org.mini2Dx:gdx-ai:2.0.0-alpha.40"
+compile "org.mini2Dx:gdx-ai:2.0.0-alpha.41"
 ```
 
 ### License
